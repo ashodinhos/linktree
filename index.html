@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="light">
 <head>
+
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1086851011057412'); 
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1086851011057412&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>Ashô | Achadinhos da Shirley (@ashodinhos_promos)</title>
   <meta name="description" content="🛍️ SÓ indico produtos bem avaliados! Confira minha vitrine completa na Shopee, promoções e descontos selecionados." />
   <meta name="theme-color" content="#E11D74" />
+
+  <meta property="og:title" content="Ashô | Achadinhos da Shirley (@ashodinhos_promos)" />
+  <meta property="og:description" content="🛍️ SÓ indico produtos bem avaliados! Confira minha vitrine completa na Shopee, promoções e descontos selecionados." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://ashodinhos.github.io/linktree/asho_pp.jpeg" />
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -369,105 +394,6 @@
 
 
   <!-- ===================================================================== -->
-  <!-- MODAL DE INSTRUÇÕES PARA O DESENVOLVEDOR / DONA DO PERFIL             -->
-  <!-- ===================================================================== -->
-  <div
-    id="devGuideModal"
-    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="devModalTitle"
-  >
-    <div class="bg-white dark:bg-plum-800 border border-stone-200 dark:border-plum-700 rounded-3xl max-w-lg w-full max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
-      <!-- Cabeçalho do Modal -->
-      <div class="px-5 py-4 bg-gradient-to-r from-brand-600 to-purple-700 text-white flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <i class="ph-fill ph-github-logo text-xl"></i>
-          <h3 id="devModalTitle" class="font-bold text-sm sm:text-base">Guia Rápido: GitHub Pages & Edição</h3>
-        </div>
-        <button
-          id="closeDevModalBtn"
-          type="button"
-          class="w-8 h-8 rounded-full bg-white/15 hover:bg-white/25 flex items-center justify-center text-white transition-colors"
-          aria-label="Fechar guia"
-        >
-          <i class="ph ph-x text-lg"></i>
-        </button>
-      </div>
-
-      <!-- Conteúdo do Modal -->
-      <div class="p-5 overflow-y-auto space-y-4 text-xs sm:text-sm text-stone-700 dark:text-stone-200 leading-relaxed">
-        <div class="p-3.5 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 text-amber-900 dark:text-amber-200 text-xs">
-          <strong>🔒 Página Protegida (Somente Leitura):</strong> Seus seguidores e visitantes <strong>não</strong> podem alterar, excluir ou editar nenhum link pela tela. Toda alteração é feita apenas por você no código-fonte.
-        </div>
-
-        <div>
-          <h4 class="font-bold text-stone-900 dark:text-white mb-1 flex items-center gap-1.5">
-            <span class="w-5 h-5 rounded-full bg-brand-600 text-white text-xs inline-flex items-center justify-center">1</span>
-            Como adicionar ou remover links facilmente
-          </h4>
-          <p class="text-xs text-stone-600 dark:text-stone-300 mb-2">
-            Abra o arquivo <code class="px-1.5 py-0.5 rounded bg-stone-100 dark:bg-plum-900 font-mono text-brand-600 dark:text-brand-400">index.html</code> em qualquer editor de texto (ou direto no site do GitHub clicando no ícone de lápis ✏️) e procure por <code class="px-1.5 py-0.5 rounded bg-stone-100 dark:bg-plum-900 font-mono text-brand-600 dark:text-brand-400">const SITE_CONFIG</code>.
-          </p>
-          <pre class="p-3 rounded-xl bg-stone-900 text-stone-100 font-mono text-[11px] overflow-x-auto leading-normal">{
-  title: "Novo Achadinho da Shopee",
-  subtitle: "Descrição curtinha do produto ou coleção",
-  category: "Casa & Quarto",
-  badge: "✨ Novo",
-  priceTag: "R$ 29,90", // opcional
-  highlightWord: "Casa", // palavra em fonte cursiva dourada
-  icon: "ph-sparkle",
-  url: "https://collshp.com/seu-link-aqui"
-}</pre>
-        </div>
-
-        <div>
-          <h4 class="font-bold text-stone-900 dark:text-white mb-1 flex items-center gap-1.5">
-            <span class="w-5 h-5 rounded-full bg-brand-600 text-white text-xs inline-flex items-center justify-center">2</span>
-            Como trocar a foto de perfil
-          </h4>
-          <p class="text-xs text-stone-600 dark:text-stone-300">
-            Salve sua foto na mesma pasta do projeto com o nome <code class="px-1.5 py-0.5 rounded bg-stone-100 dark:bg-plum-900 font-mono">perfil.jpg</code> e altere o campo <code class="px-1.5 py-0.5 rounded bg-stone-100 dark:bg-plum-900 font-mono">avatarUrl: "./perfil.jpg"</code> dentro do <code class="px-1.5 py-0.5 rounded bg-stone-100 dark:bg-plum-900 font-mono">SITE_CONFIG</code>.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-bold text-stone-900 dark:text-white mb-1 flex items-center gap-1.5">
-            <span class="w-5 h-5 rounded-full bg-brand-600 text-white text-xs inline-flex items-center justify-center">3</span>
-            Como colocar no ar grátis no GitHub Pages
-          </h4>
-          <ol class="list-decimal list-inside space-y-1 text-xs text-stone-600 dark:text-stone-300">
-            <li>Crie um repositório público no GitHub (ex: <code class="font-mono">achadinhos</code>).</li>
-            <li>Envie este arquivo com o nome exato de <code class="font-mono font-bold">index.html</code>.</li>
-            <li>No GitHub, vá em <strong>Settings &rarr; Pages</strong>.</li>
-            <li>Em <strong>Branch</strong>, selecione <code class="font-mono">main</code> e clique em <strong>Save</strong>.</li>
-            <li>Em 1 minuto seu link estará ativo para colocar na bio do Instagram!</li>
-          </ol>
-        </div>
-      </div>
-
-      <!-- Rodapé do Modal -->
-      <div class="px-5 py-3.5 bg-stone-50 dark:bg-plum-900/80 border-t border-stone-200 dark:border-plum-700 flex items-center justify-between gap-2">
-        <button
-          id="copyConfigTemplateBtn"
-          type="button"
-          class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition-all shadow-sm"
-        >
-          <i class="ph ph-copy"></i>
-          <span>Copiar modelo de novo link</span>
-        </button>
-        <button
-          id="closeDevModalFooterBtn"
-          type="button"
-          class="px-4 py-2 rounded-xl bg-stone-200 dark:bg-plum-700 text-stone-700 dark:text-stone-200 text-xs font-semibold hover:opacity-90 transition-opacity"
-        >
-          Entendi
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===================================================================== -->
   <!-- CONFIGURAÇÃO CENTRAL DO SITE (FÁCIL EDIÇÃO PARA O GITHUB PAGES)       -->
   <!-- ===================================================================== -->
   <script>
@@ -657,6 +583,7 @@
 
       container.innerHTML = `
         <a
+          id="mainStorefrontBtn"
           href="${escapeHtml(cta.url)}"
           target="_blank"
           rel="noopener noreferrer"
@@ -695,6 +622,7 @@
       `;
     }
 
+
     // 2. Renderizar Grupo Whatsapp
     function renderPrimaryGpWPP() {
       const wpp = SITE_CONFIG.grupoWpp;
@@ -702,6 +630,7 @@
 
       container.innerHTML = `
         <a
+          id="grupoWppBtn"
           href="${escapeHtml(wpp.url)}"
           target="_blank"
           rel="noopener noreferrer"
@@ -842,6 +771,7 @@
             return `
               <a
                 href="${escapeHtml(item.url)}"
+                data-link-id="${escapeHtml(item.id)}"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="group relative block rounded-2xl p-4 asho-magenta-card text-white shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.99] overflow-hidden"
@@ -883,6 +813,7 @@
           return `
             <a
               href="${escapeHtml(item.url)}"
+              data-link-id="${escapeHtml(item.id)}"
               target="_blank"
               rel="noopener noreferrer"
               class="group block rounded-2xl p-4 bg-white dark:bg-plum-800/90 border border-stone-200/90 dark:border-plum-700 hover:border-brand-500 dark:hover:border-brand-500 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.99]"
@@ -1166,6 +1097,106 @@
 
     }
 
+    // ========================================================================
+    // RASTREAMENTO CENTRALIZADO DO META PIXEL (SEM JQUERY)
+    // ========================================================================
+    function trackPixel(type, eventName, params = {}) {
+      // 1. Logs the event in your browser console (F12 -> Console)
+      console.log(`🎯 [Meta Pixel Test] ${type}: "${eventName}"`, params);
+
+      // 2. Only sends to Meta if a real numeric Pixel ID is configured
+      if (typeof fbq === "function") {
+        fbq(type, eventName, params);
+      }
+    }
+
+    function setupPixelTracking() {
+      // 1. Botão de Compartilhar (Topo) + Botões do Modal
+      document.getElementById("shareBtn")?.addEventListener("click", () => {
+        trackPixel("trackCustom", "Share");
+      });
+
+      document.getElementById("shareWhatsAppBtn")?.addEventListener("click", () => {
+        trackPixel("trackCustom", "share_whatsapp");
+      });
+
+      document.getElementById("shareTelegramBtn")?.addEventListener("click", () => {
+        trackPixel("trackCustom", "share_telegram");
+      });
+
+      document.getElementById("copyShareUrlBtn")?.addEventListener("click", () => {
+        trackPixel("trackCustom", "share_copy_link");
+      });
+
+      // 2. CTA Principal: Vitrine Completa da Shopee
+      document.getElementById("primaryCtaSection")?.addEventListener("click", e => {
+        if (e.target.closest("a")) {
+          trackPixel("trackCustom", "click_vitrine_shopee", {
+            content_name: SITE_CONFIG.mainStorefrontCta.title,
+            destination_url: SITE_CONFIG.mainStorefrontCta.url
+          });
+        }
+      });
+
+      // 3. CTA Principal: Grupo VIP do WhatsApp
+      document.getElementById("primaryGpWPP")?.addEventListener("click", e => {
+        if (e.target.closest("a")) {
+          // Dispara evento customizado + evento padrão 'Lead' para otimização de campanhas
+          trackPixel("trackCustom", "join_whatsapp_group", {
+            content_name: SITE_CONFIG.grupoWpp.title
+          });
+          trackPixel("track", "Lead", {
+            content_name: "Grupo VIP WhatsApp"
+          });
+        }
+      });
+
+      // 4. Cards de Coleções e Achadinhos (Dinâmicos)
+      document.getElementById("linksContainer")?.addEventListener("click", e => {
+        const cardLink = e.target.closest("a[data-link-id]");
+        if (!cardLink) return;
+
+        const linkId = cardLink.getAttribute("data-link-id");
+        const item = SITE_CONFIG.links.find(l => l.id === linkId);
+
+        trackPixel("trackCustom", "click_collection_card", {
+          content_ids: [linkId],
+          content_name: item ? item.title : cardLink.innerText.trim(),
+          content_category: item ? item.category : currentCategory,
+          destination_url: cardLink.href
+        });
+
+        // Track ViewContent
+        trackPixel("track", "ViewContent", {
+          content_ids: [linkId],
+          content_name: item ? item.title : cardLink.innerText.trim(),
+          content_category: item ? item.category : currentCategory
+        });
+      });
+
+      // 5. Botões do Rodapé (Instagram e Vitrine Shopee)
+      document.getElementById("socialFooterContainer")?.addEventListener("click", e => {
+        const link = e.target.closest("a");
+        if (!link) return;
+
+        const isInstagram = link.href.includes("instagram.com");
+        trackPixel("trackCustom", isInstagram ? "click_instagram" : "click_vitrine_footer", {
+          destination_url: link.href
+        });
+      });
+
+      // 6. Links do Instagram no Cabeçalho (Avatar e @handle)
+      document.getElementById("profileHeader")?.addEventListener("click", e => {
+        const link = e.target.closest("a");
+        if (link) {
+          trackPixel("trackCustom", "click_instagram_header", {
+            destination_url: link.href
+          });
+        }
+      });
+    }
+
+
     // Inicialização quando a página carrega
     window.addEventListener("DOMContentLoaded", () => {
       renderProfileHeader();
@@ -1175,6 +1206,7 @@
       renderLinks();
       renderSocialFooter();
       setupInteractions();
+      setupPixelTracking();
     });
   </script>
 </body>
