@@ -1044,7 +1044,7 @@
     // ========================================================================
     function trackPixel(type, eventName, params = {}) {
       // 1. Logs the event in your browser console (F12 -> Console)
-      console.log(`🎯 [Meta Pixel Test] ${type}: "${eventName}"`, params);
+      // console.log(`🎯 [Meta Pixel Test] ${type}: "${eventName}"`, params);
 
       // 2. Only sends to Meta if a real numeric Pixel ID is configured
       if (typeof fbq === "function") {
@@ -1090,7 +1090,7 @@
           trackPixel("trackCustom", "join_whatsapp_group", {
             content_name: SITE_CONFIG.grupoWpp.title
           });
-          trackPixel("track", "Lead", {
+          trackPixel("track", "Contact", {
             content_name: "Grupo VIP WhatsApp"
           });
         }
