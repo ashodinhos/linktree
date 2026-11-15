@@ -1086,13 +1086,27 @@
       // 3. CTA Principal: Grupo VIP do WhatsApp
       document.getElementById("primaryGpWPP")?.addEventListener("click", e => {
         if (e.target.closest("a")) {
-          // Dispara evento customizado + evento padrão 'Lead' para otimização de campanhas
+          const isVip = isVipLandingMode();
+          const modeLabel = isVip ? "vip_landing" : "full_linktree";
+
+          // 1. Evento customizado geral com parâmetro de origem explícito
           trackPixel("trackCustom", "join_whatsapp_group", {
-            content_name: SITE_CONFIG.grupoWpp.title
+            content_name: SITE_CONFIG.grupoWpp.title.trim(),
+            page_mode: modeLabel
           });
+
+          // 2. Evento padrão Contact diferenciando a página no content_name
           trackPixel("track", "Contact", {
-            content_name: "Grupo VIP WhatsApp"
+            content_name: isVip ? "Grupo VIP WhatsApp (LP Anuncio)" : "Grupo VIP WhatsApp (Linktree Bio)",
+            page_mode: modeLabel
           });
+
+          // 3. Evento exclusivo disparado APENAS na página VIP (?vip=1)
+          if (isVip) {
+            trackPixel("trackCustom", "join_whatsapp_vip_ad", {
+              content_name: "Grupo VIP WhatsApp (LP Anuncio)"
+          });
+          }
         }
       });
 
@@ -1163,13 +1177,11 @@
       });
 
       // 2. Otimiza o texto do botão e da bio para conexão imediata com o anúncio em vídeo
-      SITE_CONFIG.grupoWpp.badge = "VAGAS GRATUITAS ABERTAS";
+      SITE_CONFIG.grupoWpp.badge = "VAGAS LIMITADAS";
       SITE_CONFIG.grupoWpp.title = " Entrar no Grupo VIP do WhatsApp";
       SITE_CONFIG.grupoWpp.subtitle = "Toque aqui para acessar as ofertas do vídeo agora";
       SITE_CONFIG.profile.bioLines = [
-        "🍳 Ofertas diárias de Casa, Cozinha e Utilidades",
-        "🔥 Descontos reais selecionados + Cupons Shopee",
-        "🔒 Grupo 100% gratuito e silencioso (só admins postam)"
+        "🔒 Entre antes que lote!"
       ];
 
       // 3. Re-renderiza o cabeçalho e o botão do WhatsApp com a copy de alta conversão
