@@ -157,7 +157,7 @@
       <!-- ================================================================= -->
       <!-- 3. BUSCA E PÍLULAS DE CATEGORIAS (Inspirado nos Destaques do IG)  -->
       <!-- ================================================================= -->
-      <section class="mb-5 space-y-3" aria-label="Filtros de achadinhos">
+      <section id="filterSection" class="mb-5 space-y-3" aria-label="Filtros de achadinhos">
         <!-- Barra de Busca -->
         <div class="relative">
           <i class="ph ph-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 dark:text-stone-400 text-lg pointer-events-none"></i>
@@ -186,7 +186,7 @@
       <!-- ================================================================= -->
       <!-- 4. LISTA DE CARDS DE ACHADINHOS E COLEÇÕES                        -->
       <!-- ================================================================= -->
-      <section aria-label="Coleções e Achadinhos">
+      <section id="collectionsSection" aria-label="Coleções e Achadinhos">
         <div class="flex items-center justify-between mb-3 px-1">
           <h2 class="text-xs font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 flex items-center gap-1.5">
             <i class="ph-fill ph-sparkle text-amber-500"></i>
@@ -1142,6 +1142,47 @@
     }
 
 
+    // Verifica se a URL possui ?vip=1 ou #vip para ativar a Landing Page exclusiva de Anúncios
+    function isVipLandingMode() {
+      const params = new URLSearchParams(window.location.search);
+      return params.has("vip") || window.location.hash === "#vip";
+    }
+
+    function applyVipMode() {
+      // 1. Oculta distrações (Vitrine Shopee, Busca, Categorias, Coleções, Compartilhar e Rodapé Social)
+      const idsToHide = [
+        "primaryCtaSection",
+        "filterSection",
+        "collectionsSection",
+        "socialFooterContainer",
+        "shareBtn"
+      ];
+      idsToHide.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.add("hidden");
+      });
+
+      // 2. Otimiza o texto do botão e da bio para conexão imediata com o anúncio em vídeo
+      SITE_CONFIG.grupoWpp.badge = "VAGAS GRATUITAS ABERTAS";
+      SITE_CONFIG.grupoWpp.title = " Entrar no Grupo VIP do WhatsApp";
+      SITE_CONFIG.grupoWpp.subtitle = "Toque aqui para acessar as ofertas do vídeo agora";
+      SITE_CONFIG.profile.bioLines = [
+        "🍳 Ofertas diárias de Casa, Cozinha e Utilidades",
+        "🔥 Descontos reais selecionados + Cupons Shopee",
+        "🔒 Grupo 100% gratuito e silencioso (só admins postam)"
+      ];
+
+      // 3. Re-renderiza o cabeçalho e o botão do WhatsApp com a copy de alta conversão
+      renderProfileHeader();
+      renderPrimaryGpWPP();
+
+      // 4. Remove os links do Instagram no cabeçalho para o lead não fugir da página
+      document.querySelectorAll("#profileHeader a").forEach(a => {
+        a.removeAttribute("href");
+        a.style.pointerEvents = "none";
+      });
+    }
+
     // Inicialização quando a página carrega
     window.addEventListener("DOMContentLoaded", () => {
       renderProfileHeader();
@@ -1152,6 +1193,10 @@
       renderSocialFooter();
       setupInteractions();
       setupPixelTracking();
+
+      if (isVipLandingMode()) {
+        applyVipMode();
+      }
     });
   </script>
 </body>
