@@ -2,6 +2,14 @@
 <html lang="pt-BR" class="light">
 <head>
 
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PD2W5X9L');</script>
+  <!-- End Google Tag Manager -->
+
   <!-- Facebook Pixel Code -->
   <script>
     !function(f,b,e,v,n,t,s)
@@ -21,6 +29,8 @@
   </noscript>
   <!-- End Facebook Pixel Code -->
 
+
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>Ashô | Achadinhos da Shirley (@ashodinhos_promos)</title>
@@ -86,6 +96,10 @@
 </head>
 
 <body class="bg-sand-50 dark:bg-plum-900 text-stone-800 dark:text-stone-100 min-h-screen relative overflow-x-hidden selection:bg-brand-600 selection:text-white">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PD2W5X9L"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- ===================================================================== -->
   <!-- EFEITOS DE FUNDO AMBIENTE (Cozy Lifestyle + Magenta Glow)             -->
@@ -1040,16 +1054,21 @@
     }
 
     // ========================================================================
-    // RASTREAMENTO CENTRALIZADO DO META PIXEL (SEM JQUERY)
+    // RASTREAMENTO CENTRALIZADO: META PIXEL + GOOGLE TAG MANAGER (dataLayer)
     // ========================================================================
     function trackPixel(type, eventName, params = {}) {
-      // 1. Logs the event in your browser console (F12 -> Console)
-      // console.log(`🎯 [Meta Pixel Test] ${type}: "${eventName}"`, params);
-
-      // 2. Only sends to Meta if a real numeric Pixel ID is configured
+      // 1. Envia para o Meta Pixel
       if (typeof fbq === "function") {
         fbq(type, eventName, params);
       }
+
+      // 2. Envia para o Google Tag Manager (dataLayer)
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: eventName,
+        event_type: type,
+        ...params
+      });
     }
 
     function setupPixelTracking() {
@@ -1105,7 +1124,7 @@
           if (isVip) {
             trackPixel("trackCustom", "join_whatsapp_vip_ad", {
               content_name: "Grupo VIP WhatsApp (LP Anuncio)"
-          });
+            });
           }
         }
       });
