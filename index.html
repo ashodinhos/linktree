@@ -1114,30 +1114,43 @@
         }
       });
 
-      // 3. CTA Principal: Grupo VIP do WhatsApp
+      // 3. CTA Principal: Grupo VIP do WhatsApp (COM DELAY DE SEGURANÇA PARA O PIXEL)
       document.getElementById("primaryGpWPP")?.addEventListener("click", e => {
-        if (e.target.closest("a")) {
+        const link = e.target.closest("a");
+        if (link) {
+          e.preventDefault(); // Interrompe o redirecionamento instantâneo
+
+          const targetUrl = link.href;
           const isVip = isVipLandingMode();
           const modeLabel = isVip ? "vip_landing" : "full_linktree";
 
-          // 1. Evento customizado geral com parâmetro de origem explícito
+          // 1. Dispara os eventos do Pixel / GTM
           trackPixel("trackCustom", "join_whatsapp_group", {
             content_name: SITE_CONFIG.grupoWpp.title.trim(),
             page_mode: modeLabel
           });
 
-          // 2. Evento padrão Contact diferenciando a página no content_name
           trackPixel("track", "Contact", {
             content_name: isVip ? "Grupo VIP WhatsApp (LP Anuncio)" : "Grupo VIP WhatsApp (Linktree Bio)",
             page_mode: modeLabel
           });
 
-          // 3. Evento exclusivo disparado APENAS no Meta Pixel na página VIP (?vip=1)
           if (isVip) {
             trackPixel("trackCustom", "join_whatsapp_vip_ad", {
               content_name: "Grupo VIP WhatsApp (LP Anuncio)"
             }, false);          
           }
+
+          // 2. Feedback visual imediato no botão para o usuário não clicar duas vezes
+          const titleEl = link.querySelector("h2");
+          if (titleEl) {
+            titleEl.innerHTML = "⏳ Entrando no Grupo VIP...";
+          }
+
+          // 3. Aguarda 300ms (tempo suficiente para o fbevents.js despachar o POST para a Meta) e redireciona
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 300);
         }
       });
 
