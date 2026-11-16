@@ -1056,23 +1056,30 @@
     // ========================================================================
     // RASTREAMENTO CENTRALIZADO: META PIXEL + GOOGLE TAG MANAGER (dataLayer)
     // ========================================================================
-    function trackPixel(type, eventName, params = {}) {
-      // 1. Envia para o Meta Pixel
+    function trackPixel(type, eventName, params = {}, sendToGa = true) {
+      // 1. Envia para o Meta Pixel (mantém arrays nativos como content_ids)
       if (typeof fbq === "function") {
         fbq(type, eventName, params);
       }
 
-      // 2. Envia para o Google Tag Manager (dataLayer) com padrão limpo
+      // Permite enviar eventos exclusivos ao Meta Pixel sem duplicar no GA4
+      if (!sendToGa) return;
+
+      // 2. Envia para o Google Tag Manager (dataLayer) - Padrão Gold Standard
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        event: "pixel_track",           // Nome fixo para o Acionador (Trigger) do GTM
-        ga_event_name: eventName,       // Nome dinâmico que irá para o GA4 (ex: Lead, Contact)
-        event_type: type,               // "track" ou "trackCustom"
-        content_name: params.content_name || undefined,
-        content_category: params.content_category || undefined,
-        content_ids: params.content_ids || undefined,
-        destination_url: params.destination_url || undefined,
-        page_mode: params.page_mode || undefined
+        event: "pixel_track",
+        ga_event_name: eventName,
+        event_type: type,
+        content_name: params.content_name ?? null,
+        content_category: params.content_category ?? null,
+        // GA4 exige string em parâmetros customizados (converte ['id'] -> 'id')
+        content_ids: Array.isArray(params.content_ids)
+          ? params.content_ids.join(",")
+          : (params.content_ids ?? null),
+        destination_url: params.destination_url ?? null,
+        page_mode: params.page_mode ?? null,
+        _clear: true // Instrução nativa do GTM v2 para limpar chaves antigas da memória
       });
     }
 
@@ -1125,11 +1132,11 @@
             page_mode: modeLabel
           });
 
-          // 3. Evento exclusivo disparado APENAS na página VIP (?vip=1)
+          // 3. Evento exclusivo disparado APENAS no Meta Pixel na página VIP (?vip=1)
           if (isVip) {
             trackPixel("trackCustom", "join_whatsapp_vip_ad", {
               content_name: "Grupo VIP WhatsApp (LP Anuncio)"
-            });
+            }, false);          
           }
         }
       });
