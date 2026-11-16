@@ -1062,12 +1062,17 @@
         fbq(type, eventName, params);
       }
 
-      // 2. Envia para o Google Tag Manager (dataLayer)
+      // 2. Envia para o Google Tag Manager (dataLayer) com padrão limpo
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        event: eventName,
-        event_type: type,
-        ...params
+        event: "pixel_track",           // Nome fixo para o Acionador (Trigger) do GTM
+        ga_event_name: eventName,       // Nome dinâmico que irá para o GA4 (ex: Lead, Contact)
+        event_type: type,               // "track" ou "trackCustom"
+        content_name: params.content_name || undefined,
+        content_category: params.content_category || undefined,
+        content_ids: params.content_ids || undefined,
+        destination_url: params.destination_url || undefined,
+        page_mode: params.page_mode || undefined
       });
     }
 
