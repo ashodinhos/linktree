@@ -596,17 +596,22 @@
       const wpp = SITE_CONFIG.grupoWpp;
       const container = document.getElementById("primaryGpWPP");
 
-const visualArrowHtml = showVisualArrow
+      const visualArrowHtml = showVisualArrow
         ? `
-          <div class="flex flex-col items-center justify-center mb-3 select-none" aria-hidden="true">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white-100 dark:bg-white-950/90 border-2 border-white-500 text-white-900 dark:text-white-200 text-xs sm:text-sm font-extrabold shadow-sm">
+          <a
+            href="${escapeHtml(wpp.url)}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex flex-col items-center justify-center mb-3 select-none cursor-pointer group active:scale-95 transition-transform"
+          >
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white-100 dark:bg-white-950/90 border-2 border-white-500 text-white-900 dark:text-white-200 text-xs sm:text-sm font-extrabold shadow-sm group-hover:scale-105 transition-transform">
               <span>👇 TOQUE NO BOTÃO VERDE ABAIXO 👇</span>
             </div>
             <div class="flex items-center justify-center gap-6 text-emerald-600 dark:text-emerald-400 text-3xl animate-bounce-down mt-1">
               <i class="ph-bold ph-arrow-fat-lines-down"></i>
               <i class="ph-bold ph-arrow-fat-lines-down"></i>
             </div>
-          </div>
+          </a>
         `
         : "";
 
@@ -1168,7 +1173,8 @@ const visualArrowHtml = showVisualArrow
           }
 
           // 2. Feedback visual imediato no botão para o usuário não clicar duas vezes
-          const titleEl = link.querySelector("h2");
+
+          const titleEl = document.querySelector("#grupoWppBtn h2");
           if (titleEl) {
             titleEl.innerHTML = "⏳ Entrando no Grupo VIP...";
           }
