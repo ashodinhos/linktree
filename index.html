@@ -47,10 +47,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Phosphor Icons -->
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+  
+  <!-- Phosphor Icons Assíncrono (Não trava o carregamento nem o Pixel no WebView) -->
+  <link rel="preload" as="style" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" as="style" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" as="style" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" onload="this.onload=null;this.rel='stylesheet'" />
 
   <!-- Load css-->
   <link rel="stylesheet" href="./output.css" />
@@ -653,10 +654,6 @@ const visualArrowHtml = showVisualArrow
                   ${escapeHtml(wpp.subtitle)}
                 </p>
               </div>
-            </div>
-
-            <div class="w-10 h-10 rounded-full bg-white text-emerald-700 flex items-center justify-center shrink-0 shadow-md transition-all">
-              <i class="ph-bold ph-hand-tap text-xl"></i>
             </div>
           </div>
         </a>
