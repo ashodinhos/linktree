@@ -42,10 +42,12 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://ashodinhos.github.io/linktree/asho_pp.jpeg" />
 
-  <!-- Google Fonts: Plus Jakarta Sans (UI) + Playfair Display (Destaques Elegantes) -->
+  <!-- Google Fonts & Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 
-  
   <!-- Phosphor Icons Assíncrono (Não trava o carregamento nem o Pixel no WebView) -->
   <link rel="preload" as="style" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" onload="this.onload=null;this.rel='stylesheet'" />
   <link rel="preload" as="style" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" onload="this.onload=null;this.rel='stylesheet'" />
@@ -118,14 +120,6 @@
       animation: pulseGreenCta 1.8s infinite;
     }
 
-    .ph-svg {
-      display: inline-block;
-      width: 1em;
-      height: 1em;
-      fill: currentColor;
-      vertical-align: -0.125em;
-      flex-shrink: 0;
-    }
   </style>
 </head>
 
@@ -605,7 +599,7 @@
 const visualArrowHtml = showVisualArrow
         ? `
           <div class="flex flex-col items-center justify-center mb-3 select-none" aria-hidden="true">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-950/90 border-2 border-emerald-500 text-emerald-900 dark:text-emerald-200 text-xs sm:text-sm font-extrabold shadow-sm">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white-100 dark:bg-white-950/90 border-2 border-white-500 text-white-900 dark:text-white-200 text-xs sm:text-sm font-extrabold shadow-sm">
               <span>👇 TOQUE NO BOTÃO VERDE ABAIXO 👇</span>
             </div>
             <div class="flex items-center justify-center gap-6 text-emerald-600 dark:text-emerald-400 text-3xl animate-bounce-down mt-1">
@@ -627,7 +621,7 @@ const visualArrowHtml = showVisualArrow
           href="${escapeHtml(wpp.url)}"
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative block w-full rounded-3xl p-4 sm:p-5 asho-green-card text-white shadow-lg animate-whatsappGlow overflow-hidden transition-all duration-300 hover:scale-[1.015] active:scale-[0.99]"
+          class="group relative block w-full rounded-3xl p-4 sm:p-5 asho-green-card text-white shadow-lg ${extraVipClasses} overflow-hidden transition-all duration-300 hover:scale-[1.015] active:scale-[0.99]"
         >
           <!-- Efeito de brilho passando -->
           <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent animate-shimmer pointer-events-none"></div>
@@ -636,22 +630,21 @@ const visualArrowHtml = showVisualArrow
           <span class="absolute top-2.5 right-12 text-white/80 text-xs pointer-events-none select-none">✦</span>
           <span class="absolute bottom-2.5 left-10 text-white/60 text-[10px] pointer-events-none select-none">✦</span>
 
-          <div class="relative z-10 flex items-center justify-between gap-3">
-            <div class="flex items-center gap-3.5 text-left">
-              <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shrink-0 shadow-inner">
-                <i class="ph-fill ph-whatsapp-logo text-3xl text-amber-200"></i>
+          <!-- DEPOIS (sem justify-between e sem div sobrando) -->
+          <div class="relative z-10 flex items-center gap-3.5 text-left">
+            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shrink-0 shadow-inner">
+              <i class="ph-fill ph-whatsapp-logo text-3xl text-amber-200"></i>
+            </div>
+            <div>
+              <div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-300 text-stone-900 text-[11px] font-extrabold uppercase tracking-wider mb-1">
+                <span>✨ ${escapeHtml(wpp.badge)}</span>
               </div>
-              <div>
-                <div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-300 text-stone-900 text-[11px] font-extrabold uppercase tracking-wider mb-1">
-                  <span>✨ ${escapeHtml(wpp.badge)}</span>
-                </div>
-                <h2 class="font-extrabold text-base sm:text-lg leading-tight text-white">
-                  ${escapeHtml(wpp.title)}
-                </h2>
-                <p class="text-xs sm:text-sm text-emerald-50 font-medium mt-0.5">
-                  ${escapeHtml(wpp.subtitle)}
-                </p>
-              </div>
+              <h2 class="font-extrabold text-base sm:text-lg leading-tight text-white">
+                ${escapeHtml(wpp.title)}
+              </h2>
+              <p class="text-xs sm:text-sm text-emerald-50 font-medium mt-0.5">
+                ${escapeHtml(wpp.subtitle)}
+              </p>
             </div>
           </div>
         </a>
@@ -1257,9 +1250,6 @@ const visualArrowHtml = showVisualArrow
       SITE_CONFIG.grupoWpp.badge = "PASSO FINAL • GRATUITO";
       SITE_CONFIG.grupoWpp.title = "ENTRAR NO GRUPO DO WHATSAPP";
       SITE_CONFIG.grupoWpp.subtitle = "👆 Confirme sua participação aqui";
-      SITE_CONFIG.profile.bioLines = [
-        "✅ Falta só 1 clique para receber as ofertas no seu WhatsApp!"
-      ];
 
       // 3. Re-renderiza o cabeçalho e o botão do WhatsApp com a seta animada ativada (true)
       renderProfileHeader();
