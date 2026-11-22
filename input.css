@@ -1,3 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #8E1B1B;
+    outline-offset: 2px;
+  }
+
+  .dark *:focus-visible {
+    outline-color: #FFF3A3;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Editorial highlight band (Playfair Display Bold Uppercase #8E1B1B on #FFF3A3) */
+.ashome-band {
+  background-color: #FFF3A3;
+  color: #8E1B1B;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Calm bottom-sheet / drawer motion */
+.drawer-backdrop {
+  transition: opacity 0.22s ease;
+}
+
+.drawer-panel {
+  transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.22s ease;
+}

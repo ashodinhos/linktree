@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="dark">
 <head>
-
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -20,7 +19,7 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1086851011057412'); 
+    fbq('init', '1086851011057412');
     fbq('track', 'PageView');
   </script>
   <noscript>
@@ -29,440 +28,628 @@
   </noscript>
   <!-- End Facebook Pixel Code -->
 
+  <!-- Preferência de tema sem flash (padrão editorial escuro Marrom Escuro #2A1210) -->
+  <script>
+    (function () {
+      try {
+        if (window.localStorage.getItem("ashome_theme") === "light") {
+          document.documentElement.classList.remove("dark");
+        }
+      } catch (e) {}
+    })();
+  </script>
 
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>Ashô | Achadinhos da Shirley (@ashodinhos_promos)</title>
-  <meta name="description" content="🛍️ SÓ indico produtos bem avaliados! Confira minha vitrine completa na Shopee, promoções e descontos selecionados." />
-  <meta name="theme-color" content="#E11D74" />
+  <title>AsHome Curadoria — Uma casa com intenção</title>
+  <meta name="description" content="Uma casa com intenção é o luxo, sem bolso fundo. Curadoria independente de design e decoração. Só o que eu compraria." />
+  <meta id="themeColorMeta" name="theme-color" content="#2A1210" />
 
-  <meta property="og:title" content="Ashô | Achadinhos da Shirley (@ashodinhos_promos)" />
-  <meta property="og:description" content="🛍️ SÓ indico produtos bem avaliados! Confira minha vitrine completa na Shopee, promoções e descontos selecionados." />
+  <meta property="og:title" content="AsHome Curadoria (@ashome.curadoria)" />
+  <meta property="og:description" content="Uma casa com intenção é o luxo, sem bolso fundo. Curadoria, não volume. Só o que eu compraria." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://ashodinhos.github.io/linktree/asho_pp.jpeg" />
 
-  <!-- Google Fonts & Preconnects -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://unpkg.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <!-- Google Fonts & Preconnects (Playfair Display + Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://unpkg.com" crossorigin />
+  <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&display=swap"
+    />
+  </noscript>
 
   <!-- Phosphor Icons Assíncrono (Não trava o carregamento nem o Pixel no WebView) -->
   <link rel="preload" as="style" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" onload="this.onload=null;this.rel='stylesheet'" />
   <link rel="preload" as="style" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" onload="this.onload=null;this.rel='stylesheet'" />
   <link rel="preload" as="style" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" onload="this.onload=null;this.rel='stylesheet'" />
 
-  <!-- Load css-->
+  <!-- Tailwind CSS compilado -->
   <link rel="stylesheet" href="./output.css" />
-
-  <style>
-    /* Esconder barra de rolagem nas pílulas de categoria mantendo o scroll */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    /* Gradiente de borda estilo Stories do Instagram + Magenta Ashô */
-    .avatar-ring {
-      background: linear-gradient(135deg, #FBBF24 0%, #E11D74 50%, #9C27B0 100%);
-      padding: 3.5px;
-    }
-
-    /* Banner estilo capa dos Reels da Ashô */
-    .asho-magenta-card {
-      background: linear-gradient(135deg, #E11D74 0%, #C2185B 55%, #8E24AA 100%);
-    }
-
-    /* Banner estilo capa dos Reels da Ashô (versão verde WhatsApp) */
-    .asho-green-card {
-      background: linear-gradient(135deg, #25D366 0%, #128C7E 55%, #075E54 100%);
-    }
-
-    /* Transições suaves de tema */
-    body {
-      transition: background-color 0.3s ease, color 0.3s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    /* Estilização sutil de foco para acessibilidade */
-    *:focus-visible {
-      outline: 2px solid #E11D74;
-      outline-offset: 2px;
-    }
-
-    /* Seta animada apontando para baixo (foco em público 65+) */
-    @keyframes bounceDown {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(7px);
-      }
-    }
-    .animate-bounce-down {
-      animation: bounceDown 1.1s infinite ease-in-out;
-    }
-
-    /* Pulso suave no botão verde para destacar que é clicável */
-    @keyframes pulseGreenCta {
-      0%, 100% {
-        box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.5), 0 0 0 0 rgba(37, 211, 102, 0.6);
-      }
-      50% {
-        box-shadow: 0 10px 30px -5px rgba(37, 211, 102, 0.75), 0 0 0 8px rgba(37, 211, 102, 0);
-      }
-    }
-    .vip-cta-highlight {
-      animation: pulseGreenCta 1.8s infinite;
-    }
-
-  </style>
 </head>
 
-<body class="bg-sand-50 dark:bg-plum-900 text-stone-800 dark:text-stone-100 min-h-screen relative overflow-x-hidden selection:bg-brand-600 selection:text-white">
+<body class="bg-cream dark:bg-espresso text-espresso dark:text-cream-light font-sans antialiased min-h-screen overflow-x-hidden selection:bg-butter selection:text-wine">
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PD2W5X9L"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
   <!-- ===================================================================== -->
-  <!-- EFEITOS DE FUNDO AMBIENTE (Cozy Lifestyle + Magenta Glow)             -->
+  <!-- CONTAINER PRINCIPAL MOBILE-FIRST (max-width: 480px)                   -->
   <!-- ===================================================================== -->
-  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
-    <div class="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-brand-400/15 dark:bg-brand-600/20 blur-3xl"></div>
-    <div class="absolute top-1/3 -right-28 w-72 h-72 rounded-full bg-amber-300/15 dark:bg-purple-600/15 blur-3xl"></div>
-    <div class="absolute -bottom-24 left-1/4 w-96 h-96 rounded-full bg-brand-300/10 dark:bg-brand-700/15 blur-3xl"></div>
-  </div>
+  <main class="max-w-editorial mx-auto px-5 pt-5 pb-14 min-h-screen flex flex-col justify-between">
+    <div class="space-y-7">
 
-  <!-- ===================================================================== -->
-  <!-- CONTAINER PRINCIPAL MOBILE-FIRST                                      -->
-  <!-- ===================================================================== -->
-  <main class="relative z-10 max-w-md mx-auto px-4 pt-5 pb-14 min-h-screen flex flex-col justify-between">
-    
-    <div>
-      <!-- BARRA SUPERIOR DE AÇÕES RÁPIDAS -->
-      <div class="flex items-center justify-between mb-3">
-        <!-- Selo de Curadoria -->
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/80 dark:bg-plum-800/90 backdrop-blur-md border border-brand-200/70 dark:border-brand-800/60 shadow-sm text-xs font-semibold text-brand-700 dark:text-brand-300">
-          <span class="text-amber-500">✨</span>
-          <span>Curadoria Oficial</span>
-        </div>
+      <!-- BARRA SUPERIOR DISCRETA -->
+      <div class="flex items-center justify-between">
+        <a
+          id="topHandleLink"
+          href="https://instagram.com/ashome.curadoria"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cream-light dark:bg-espresso-card border border-cream-border dark:border-espresso-border text-xs font-medium text-espresso-ink dark:text-cream hover:border-wood dark:hover:border-wood-light transition-colors"
+        >
+          <!-- Assinatura minimalista do espelho AsHome -->
+          <svg class="w-3.5 h-3.5 text-wood dark:text-wood-light shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="6" y="3" width="12" height="18" rx="6" />
+            <path d="M10 8.5l2.5-2.5" />
+            <path d="M10 12l4-4" />
+          </svg>
+          <span>@ashome.curadoria</span>
+        </a>
 
-        <!-- Botões: Compartilhar & Alternar Tema Claro/Escuro -->
         <div class="flex items-center gap-2">
           <button
             id="shareBtn"
             type="button"
             aria-label="Compartilhar página"
-            class="w-9 h-9 rounded-full bg-white/80 dark:bg-plum-800/90 backdrop-blur-md border border-stone-200/80 dark:border-plum-700 flex items-center justify-center text-stone-700 dark:text-stone-200 hover:border-brand-500 hover:text-brand-600 transition-all shadow-sm active:scale-95"
-            title="Compartilhar link"
+            title="Compartilhar"
+            class="w-9 h-9 rounded-full bg-cream-light dark:bg-espresso-card border border-cream-border dark:border-espresso-border flex items-center justify-center text-espresso-ink dark:text-cream hover:border-wood dark:hover:border-wood-light transition-colors"
           >
-            <i class="ph ph-share-network text-lg"></i>
+            <i class="ph ph-share-network text-base"></i>
           </button>
 
           <button
             id="themeToggleBtn"
             type="button"
-            aria-label="Alternar tema claro ou escuro"
-            class="w-9 h-9 rounded-full bg-white/80 dark:bg-plum-800/90 backdrop-blur-md border border-stone-200/80 dark:border-plum-700 flex items-center justify-center text-stone-700 dark:text-amber-300 hover:border-brand-500 transition-all shadow-sm active:scale-95"
+            aria-label="Alternar modo claro ou escuro"
             title="Alternar tema"
+            class="w-9 h-9 rounded-full bg-cream-light dark:bg-espresso-card border border-cream-border dark:border-espresso-border flex items-center justify-center text-wood dark:text-butter hover:border-wood dark:hover:border-wood-light transition-colors"
           >
-            <i id="themeIcon" class="ph-fill ph-sun text-lg"></i>
+            <i id="themeIcon" class="ph-fill ph-sun text-base"></i>
           </button>
         </div>
       </div>
 
       <!-- ================================================================= -->
-      <!-- 1. CABEÇALHO DO PERFIL (Renderizado via SITE_CONFIG)              -->
+      <!-- SEÇÃO 1: HEADER & ASSINATURA DA MARCA                             -->
       <!-- ================================================================= -->
-      <header id="profileHeader" class="text-center mb-6">
+      <header id="profileHeader" class="text-center pt-1">
         <!-- Preenchido dinamicamente pelo JavaScript -->
       </header>
 
       <!-- ================================================================= -->
-      <!-- 2. BOTÃO PRINCIPAL EM DESTAQUE (Vitrine Completa Shopee)          -->
+      <!-- SEÇÃO 2: BLOCO DE CONVERSÃO PRINCIPAL (GRUPO & PALAVRAS-CHAVE)    -->
       <!-- ================================================================= -->
+      <section id="primaryConversionSection" class="space-y-4" aria-label="Grupo de Curadorias e Busca por Vídeo">
+        <!-- Card Principal: Grupo de Curadorias AsHome -->
+        <div id="primaryGpWPP">
+          <!-- Preenchido dinamicamente pelo JavaScript -->
+        </div>
 
-      <section id="primaryGpWPP" class="mb-6">
-        <!-- Preenchido dinamicamente pelo JavaScript -->
+        <!-- Prévia Visual Discreta (exibida apenas no Modo VIP ?vip=1) -->
+        <div id="vipPreviewStrip" class="hidden">
+          <!-- Preenchido dinamicamente pelo JavaScript -->
+        </div>
+
+        <!-- Link Discreto para a Vitrine Completa na Shopee -->
+        <div id="primaryCtaSection">
+          <!-- Preenchido dinamicamente pelo JavaScript -->
+        </div>
+
+        <!-- Micro-bloco "Veio pelo vídeo?" -->
+        <div
+          id="videoKeywordSection"
+          class="rounded-card bg-cream-light dark:bg-espresso-card border border-cream-border dark:border-espresso-border p-4 space-y-3"
+        >
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h2 class="font-serif font-bold text-base text-espresso dark:text-cream-light leading-snug">
+                Veio pelo vídeo?
+              </h2>
+              <p class="text-xs text-espresso-muted dark:text-espresso-darkMuted mt-0.5">
+                Busque pela palavra-chave comentada ou abra o catálogo filtrado.
+              </p>
+            </div>
+            <button
+              id="openDrawerQuickBtn"
+              type="button"
+              class="shrink-0 inline-flex items-center gap-1 px-2.5 py-1.5 rounded-btn bg-cream dark:bg-espresso-elevated border border-cream-border dark:border-espresso-border text-[11px] font-semibold text-wine dark:text-butter hover:border-wood dark:hover:border-wood-light transition-colors"
+            >
+              <i class="ph ph-sliders-horizontal text-xs"></i>
+              <span>Catálogo</span>
+            </button>
+          </div>
+
+          <!-- Campo de busca -->
+          <div class="relative">
+            <i class="ph ph-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-wood dark:text-wood-light text-base pointer-events-none"></i>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Buscar palavra-chave, cor ou peça..."
+              class="w-full pl-10 pr-9 py-2.5 rounded-btn bg-white dark:bg-espresso border border-cream-border dark:border-espresso-border text-sm text-espresso dark:text-cream-light placeholder-espresso-muted dark:placeholder-espresso-darkMuted focus:outline-none focus:border-wine dark:focus:border-butter transition-colors"
+            />
+            <button
+              id="clearSearchBtn"
+              type="button"
+              aria-label="Limpar busca"
+              class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-espresso-muted dark:text-espresso-darkMuted hover:text-wine dark:hover:text-butter p-1"
+            >
+              <i class="ph-fill ph-x-circle text-base"></i>
+            </button>
+          </div>
+
+          <!-- Atalhos rápidos de palavras-chave dos vídeos -->
+          <div id="keywordChipsContainer" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pt-0.5">
+            <!-- Preenchido dinamicamente pelo JavaScript -->
+          </div>
+        </div>
       </section>
 
-      <section id="primaryCtaSection" class="mb-6">
-        <!-- Preenchido dinamicamente pelo JavaScript -->
-      </section>
-
-
       <!-- ================================================================= -->
-      <!-- 3. BUSCA E PÍLULAS DE CATEGORIAS (Inspirado nos Destaques do IG)  -->
+      <!-- SEÇÃO 3: NAVEGAÇÃO POR EDITORIAS (5 PILARES)                      -->
       <!-- ================================================================= -->
-      <section id="filterSection" class="mb-5 space-y-3" aria-label="Filtros de achadinhos">
-        <!-- Barra de Busca -->
-        <div class="relative">
-          <i class="ph ph-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-400 dark:text-stone-400 text-lg pointer-events-none"></i>
-          <input
-            id="searchInput"
-            type="search"
-            placeholder="Buscar achadinho, ambiente ou oferta..."
-            class="w-full pl-10 pr-9 py-3 rounded-2xl bg-white dark:bg-plum-800/90 border border-stone-200/90 dark:border-plum-700 text-sm text-stone-800 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-400 shadow-sm focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 transition-all"
-          />
+      <section id="editorialsSection" class="space-y-3" aria-label="Navegação por Editorias">
+        <div class="flex items-center justify-between px-0.5">
+          <div class="flex items-center gap-2">
+            <span class="w-4 h-px bg-wood dark:bg-wood-light" aria-hidden="true"></span>
+            <h2 class="text-[11px] font-semibold uppercase tracking-[0.14em] text-wood dark:text-wood-light">
+              Editorias
+            </h2>
+          </div>
           <button
-            id="clearSearchBtn"
+            id="resetEditorialTopBtn"
             type="button"
-            aria-label="Limpar busca"
-            class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-brand-600 p-1"
+            class="hidden text-[11px] font-medium text-wine dark:text-butter underline underline-offset-4"
           >
-            <i class="ph-fill ph-x-circle text-lg"></i>
+            Ver todas
           </button>
         </div>
 
-        <!-- Pílulas Horizontais de Categorias -->
-        <div id="categoryPillsContainer" class="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 -mx-4 px-4">
+        <div id="editorialsContainer" class="space-y-2.5">
           <!-- Preenchido dinamicamente pelo JavaScript -->
         </div>
       </section>
 
       <!-- ================================================================= -->
-      <!-- 4. LISTA DE CARDS DE ACHADINHOS E COLEÇÕES                        -->
+      <!-- SEÇÃO 4: MOODBOARD / VITRINE RECENTE (GRADE 2 COLUNAS)            -->
       <!-- ================================================================= -->
-      <section id="collectionsSection" aria-label="Coleções e Achadinhos">
-        <div class="flex items-center justify-between mb-3 px-1">
-          <h2 class="text-xs font-bold uppercase tracking-wider text-stone-500 dark:text-stone-400 flex items-center gap-1.5">
-            <i class="ph-fill ph-sparkle text-amber-500"></i>
-            <span id="activeCategoryLabel">Coleções em Destaque</span>
-          </h2>
-          <span id="resultsCounter" class="text-xs font-medium text-brand-600 dark:text-brand-300 bg-brand-50 dark:bg-brand-900/40 px-2.5 py-0.5 rounded-full">
+      <section id="moodboardSection" class="space-y-3.5" aria-label="Moodboard e Vitrine Recente">
+        <div class="flex items-end justify-between gap-2 px-0.5">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="w-4 h-px bg-wood dark:bg-wood-light" aria-hidden="true"></span>
+              <span class="text-[11px] font-semibold uppercase tracking-[0.14em] text-wood dark:text-wood-light">
+                Episódio 1 • Móvel Colorido
+              </span>
+            </div>
+            <h2 id="activeFilterLabel" class="font-serif font-bold text-lg text-espresso dark:text-cream-light leading-tight">
+              Moodboard Recente
+            </h2>
+          </div>
+
+          <span
+            id="resultsCounter"
+            class="shrink-0 text-[11px] font-medium text-espresso-muted dark:text-espresso-darkMuted bg-cream-light dark:bg-espresso-card border border-cream-border dark:border-espresso-border px-2.5 py-1 rounded-full"
+          >
             <!-- Contagem automática -->
           </span>
         </div>
 
-        <!-- Container dos Links -->
-        <div id="linksContainer" class="space-y-3.5">
+        <!-- Grade de 2 colunas com superfície branca limpa -->
+        <div id="moodboardGrid" class="grid grid-cols-2 gap-3.5">
           <!-- Preenchido dinamicamente pelo JavaScript -->
         </div>
 
-        <!-- Estado Vazio (quando a busca não encontra resultados) -->
-        <div id="emptyState" class="hidden text-center py-10 px-4 rounded-3xl bg-white/70 dark:bg-plum-800/50 border border-dashed border-stone-300 dark:border-plum-700 my-2">
-          <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-300 flex items-center justify-center mx-auto mb-3 text-2xl">
-            <i class="ph ph-magnifying-glass"></i>
+        <!-- Estado Vazio calmo -->
+        <div
+          id="emptyState"
+          class="hidden text-center py-9 px-5 rounded-card bg-cream-light dark:bg-espresso-card border border-cream-border dark:border-espresso-border space-y-3"
+        >
+          <div class="w-10 h-10 rounded-full bg-cream dark:bg-espresso-elevated text-wood dark:text-wood-light flex items-center justify-center mx-auto">
+            <i class="ph ph-compass text-xl"></i>
           </div>
-          <p class="font-bold text-stone-800 dark:text-stone-100 text-sm mb-1">Nenhum achadinho encontrado</p>
-          <p class="text-xs text-stone-500 dark:text-stone-400 mb-4">Tente buscar outro termo ou veja todos os itens direto na minha vitrine completa.</p>
+          <div class="space-y-1">
+            <p class="font-serif font-bold text-sm text-espresso dark:text-cream-light">
+              Nenhuma peça encontrada com esse filtro
+            </p>
+            <p class="text-xs text-espresso-muted dark:text-espresso-darkMuted leading-relaxed">
+              Experimente outra palavra-chave ou acompanhe as próximas seleções no Grupo de Curadorias.
+            </p>
+          </div>
           <button
             id="resetFiltersBtn"
             type="button"
-            class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-brand-600 text-white text-xs font-bold shadow-sm hover:bg-brand-700 transition-all"
+            class="inline-flex items-center gap-1.5 px-4 py-2 rounded-btn bg-wine hover:bg-wine-hover text-cream-light text-xs font-semibold transition-colors"
           >
             <i class="ph ph-arrow-counter-clockwise"></i>
-            Mostrar todas as categorias
+            <span>Mostrar todas as peças</span>
           </button>
         </div>
       </section>
+
     </div>
 
     <!-- =================================================================== -->
-    <!-- 5. RODAPÉ & BOTÃO DO INSTAGRAM                                      -->
+    <!-- SEÇÃO 5: RODAPÉ DE TRANSPARÊNCIA & ENCERRAMENTO                     -->
     <!-- =================================================================== -->
-    <footer class="mt-10 pt-6 border-t border-stone-200/80 dark:border-plum-800 text-center space-y-5">
-      <!-- Card Instagram -->
+    <footer class="mt-12 pt-7 border-t border-cream-border dark:border-espresso-border space-y-6 text-center">
+      <!-- Links Sociais Discretos -->
       <div id="socialFooterContainer">
         <!-- Preenchido dinamicamente pelo JavaScript -->
       </div>
 
-      <!-- Assinatura da Marca -->
-      <div class="space-y-1.5">
-        <p class="text-xs font-medium text-stone-500 dark:text-stone-400">
-          Feito com 💖 por <span class="font-bold text-brand-600 dark:text-brand-400">Ashô | Achadinhos da Shirley</span>
-        </p>
-        <p class="text-[11px] text-stone-400 dark:text-stone-500">
-           SÓ indico produtos bem avaliados • Links oficiais e seguros
-        </p>
+      <!-- Nota Editorial & Afiliados (Diretriz Oficial) -->
+      <p class="text-[11.5px] leading-relaxed text-espresso-muted dark:text-espresso-darkMuted max-w-[400px] mx-auto">
+        Curadoria independente. Alguns links são de afiliada — você não paga nada a mais por isso, e ajuda a manter a pesquisa ativa. Ambientações criadas com auxílio de IA são sempre sinalizadas.
+      </p>
 
+      <!-- Frase de Fechamento + Espelho AsHome -->
+      <div class="flex flex-col items-center gap-2 pt-1">
+        <p class="font-serif italic text-sm text-espresso dark:text-cream-light">
+          Dá pra levar pra sua casa.
+        </p>
+        <div class="flex items-center gap-2 text-wood dark:text-wood-light" aria-hidden="true">
+          <span class="w-8 h-px bg-cream-border dark:bg-espresso-border"></span>
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="2.5" width="12" height="19" rx="6" />
+            <path d="M9.8 8.5l2.8-2.8" />
+            <path d="M9.8 12.2l4.4-4.4" />
+          </svg>
+          <span class="w-8 h-px bg-cream-border dark:bg-espresso-border"></span>
+        </div>
       </div>
     </footer>
-
   </main>
 
   <!-- ===================================================================== -->
-  <!-- TOAST DE NOTIFICAÇÃO (Link Copiado)                                   -->
+  <!-- GAVETA DISCRETA IN-PAGE: DETALHES DA CURADORIA & FILTROS              -->
   <!-- ===================================================================== -->
   <div
-    id="toastNotification"
-    class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 translate-y-3 transition-all duration-300 bg-stone-900 dark:bg-white text-white dark:text-stone-900 px-4 py-2.5 rounded-full shadow-xl text-xs font-semibold flex items-center gap-2"
-    role="status"
-    aria-live="polite"
+    id="curadoriaDrawer"
+    class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center bg-espresso/55 dark:bg-black/70 backdrop-blur-[2px] drawer-backdrop opacity-0"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="drawerPieceTitle"
   >
-    <i class="ph-fill ph-check-circle text-emerald-400 dark:text-emerald-600 text-base"></i>
-    <span id="toastMessage">Link da página copiado!</span>
+    <div
+      id="curadoriaDrawerPanel"
+      class="drawer-panel translate-y-6 opacity-0 bg-cream-light dark:bg-espresso-card border border-cream-border dark:border-espresso-border rounded-t-[18px] sm:rounded-card w-full max-w-editorial max-h-[90vh] flex flex-col overflow-hidden"
+    >
+      <!-- Cabeçalho da Gaveta -->
+      <div class="flex items-center justify-between px-4 py-3.5 border-b border-cream-border dark:border-espresso-border shrink-0">
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-wood dark:text-wood-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="6" y="3" width="12" height="18" rx="6" />
+            <path d="M10 8.5l2.5-2.5" />
+          </svg>
+          <span class="font-serif font-bold text-sm text-espresso dark:text-cream-light">
+            Detalhes da Curadoria
+          </span>
+        </div>
+        <button
+          id="closeDrawerBtn"
+          type="button"
+          aria-label="Fechar detalhes da curadoria"
+          class="w-8 h-8 rounded-full bg-cream dark:bg-espresso-elevated border border-cream-border dark:border-espresso-border text-espresso-ink dark:text-cream flex items-center justify-center hover:border-wood transition-colors"
+        >
+          <i class="ph ph-x text-base"></i>
+        </button>
+      </div>
+
+      <!-- Barra de Busca & Tags interna da Gaveta (pré-carregada em segundo plano) -->
+      <div class="px-4 py-3 bg-cream/70 dark:bg-espresso/60 border-b border-cream-border dark:border-espresso-border space-y-2.5 shrink-0">
+        <div class="relative">
+          <i class="ph ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-wood dark:text-wood-light text-sm pointer-events-none"></i>
+          <input
+            id="drawerSearchInput"
+            type="search"
+            placeholder="Filtrar peças por nome, cor, ambiente ou tag..."
+            class="w-full pl-9 pr-8 py-2 rounded-btn bg-white dark:bg-espresso-card border border-cream-border dark:border-espresso-border text-xs text-espresso dark:text-cream-light placeholder-espresso-muted dark:placeholder-espresso-darkMuted focus:outline-none focus:border-wine dark:focus:border-butter transition-colors"
+          />
+          <button
+            id="clearDrawerSearchBtn"
+            type="button"
+            aria-label="Limpar busca na gaveta"
+            class="hidden absolute right-2 top-1/2 -translate-y-1/2 text-espresso-muted dark:text-espresso-darkMuted hover:text-wine dark:hover:text-butter p-1"
+          >
+            <i class="ph-fill ph-x-circle text-sm"></i>
+          </button>
+        </div>
+
+        <!-- Pílulas de Tags da Gaveta -->
+        <div id="drawerTagFilters" class="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+          <!-- Preenchido em segundo plano / dinamicamente -->
+        </div>
+
+        <!-- Seletor horizontal de peças correspondentes -->
+        <div id="drawerPieceStrip" class="flex items-center gap-2 overflow-x-auto no-scrollbar pt-0.5">
+          <!-- Preenchido dinamicamente -->
+        </div>
+      </div>
+
+      <!-- Corpo rolável com detalhes da peça selecionada -->
+      <div id="drawerBody" class="overflow-y-auto p-4 space-y-4">
+        <!-- Preenchido dinamicamente -->
+      </div>
+    </div>
   </div>
 
   <!-- ===================================================================== -->
-  <!-- MODAL DE COMPARTILHAMENTO (À PROVA DE FALHAS EM IFRAMES E DESKTOP)     -->
+  <!-- TOAST DE NOTIFICAÇÃO                                                  -->
+  <!-- ===================================================================== -->
+  <div
+    id="toastNotification"
+    class="fixed bottom-5 left-1/2 -translate-x-1/2 z-[60] pointer-events-none opacity-0 translate-y-3 transition-all duration-300 bg-espresso dark:bg-cream-light text-cream-light dark:text-espresso px-4 py-2.5 rounded-full border border-espresso-border dark:border-cream-border text-xs font-medium flex items-center gap-2"
+    role="status"
+    aria-live="polite"
+  >
+    <i class="ph-fill ph-check-circle text-butter dark:text-wine text-base"></i>
+    <span id="toastMessage">Link copiado.</span>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL DE COMPARTILHAMENTO                                             -->
   <!-- ===================================================================== -->
   <div
     id="shareModal"
-    class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-4 bg-black/60 backdrop-blur-sm transition-opacity"
+    class="fixed inset-0 z-50 hidden items-end sm:items-center justify-center p-4 bg-espresso/55 dark:bg-black/70 backdrop-blur-[2px]"
     role="dialog"
     aria-modal="true"
     aria-labelledby="shareModalTitle"
   >
-    <div class="bg-white dark:bg-plum-800 border border-stone-200 dark:border-plum-700 rounded-3xl max-w-sm w-full p-5 shadow-2xl space-y-4 animate-float" style="animation: none;">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <span class="w-8 h-8 rounded-full bg-brand-50 dark:bg-brand-900/50 text-brand-600 dark:text-brand-300 flex items-center justify-center">
-            <i class="ph-fill ph-share-network text-base"></i>
-          </span>
-          <div>
-            <h3 id="shareModalTitle" class="font-bold text-sm text-stone-900 dark:text-white">Compartilhar Achadinhos</h3>
-            <p class="text-[11px] text-stone-500 dark:text-stone-400">Envie esta vitrine para amigas e familiares ✨</p>
-          </div>
+    <div class="bg-cream-light dark:bg-espresso-card border border-cream-border dark:border-espresso-border rounded-card max-w-sm w-full p-5 space-y-4">
+      <div class="flex items-center justify-between gap-2">
+        <div>
+          <h3 id="shareModalTitle" class="font-serif font-bold text-base text-espresso dark:text-cream-light">
+            Compartilhar AsHome Curadoria
+          </h3>
+          <p class="text-xs text-espresso-muted dark:text-espresso-darkMuted mt-0.5">
+            Envie para quem também ama casa com intenção.
+          </p>
         </div>
         <button
           id="closeShareModalBtn"
           type="button"
-          class="w-8 h-8 rounded-full bg-stone-100 dark:bg-plum-700 text-stone-500 dark:text-stone-300 hover:text-brand-600 flex items-center justify-center transition-colors"
+          class="w-8 h-8 rounded-full bg-cream dark:bg-espresso-elevated border border-cream-border dark:border-espresso-border text-espresso-ink dark:text-cream flex items-center justify-center hover:border-wood transition-colors"
           aria-label="Fechar modal de compartilhamento"
         >
           <i class="ph ph-x text-base"></i>
         </button>
       </div>
 
-      <!-- Caixa com Link + Botão Copiar -->
-      <div class="p-2.5 rounded-2xl bg-sand-50 dark:bg-plum-900/90 border border-stone-200 dark:border-plum-700 flex items-center justify-between gap-2">
+      <div class="p-2 rounded-btn bg-cream dark:bg-espresso border border-cream-border dark:border-espresso-border flex items-center justify-between gap-2">
         <input
           id="shareUrlInput"
           type="text"
           readonly
-          value="https://collshp.com/ashodinhos_promos?view=storefront"
-          class="bg-transparent text-xs text-stone-600 dark:text-stone-300 font-medium w-full focus:outline-none truncate px-1"
+          value="https://ashodinhos.github.io/linktree/"
+          class="bg-transparent text-xs text-espresso-ink dark:text-cream font-medium w-full focus:outline-none truncate px-1.5"
           aria-label="Link para compartilhar"
         />
         <button
           id="copyShareUrlBtn"
           type="button"
-          class="shrink-0 inline-flex items-center gap-1 px-3 py-2 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition-all active:scale-95 shadow-sm"
+          class="shrink-0 inline-flex items-center gap-1.5 px-3 py-2 rounded-btn bg-wine hover:bg-wine-hover text-cream-light text-xs font-semibold transition-colors"
         >
           <i class="ph-bold ph-copy"></i>
           <span>Copiar</span>
         </button>
       </div>
 
-      <!-- Botões de Redes Sociais Diretas -->
-      <div class="grid grid-cols-2 gap-2.5 pt-1">
+      <div class="grid grid-cols-2 gap-2.5">
         <a
           id="shareWhatsAppBtn"
-          href="https://api.whatsapp.com/send?text=Confira%20os%20achadinhos%20da%20Shirley!"
+          href="https://api.whatsapp.com/send?text=Conhe%C3%A7a%20a%20AsHome%20Curadoria"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold shadow-sm transition-all active:scale-95"
+          class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-btn bg-cream dark:bg-espresso-elevated border border-cream-border dark:border-espresso-border hover:border-wood text-espresso dark:text-cream-light text-xs font-semibold transition-colors"
         >
-          <i class="ph-fill ph-whatsapp-logo text-base"></i>
+          <i class="ph-fill ph-whatsapp-logo text-base text-wood dark:text-wood-light"></i>
           <span>WhatsApp</span>
         </a>
         <a
           id="shareTelegramBtn"
-          href="https://t.me/share/url?url=https://collshp.com/ashodinhos_promos"
+          href="https://t.me/share/url?url=https://ashodinhos.github.io/linktree/"
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-sky-500 hover:bg-sky-600 text-white text-xs font-bold shadow-sm transition-all active:scale-95"
+          class="flex items-center justify-center gap-2 py-2.5 px-3 rounded-btn bg-cream dark:bg-espresso-elevated border border-cream-border dark:border-espresso-border hover:border-wood text-espresso dark:text-cream-light text-xs font-semibold transition-colors"
         >
-          <i class="ph-fill ph-telegram-logo text-base"></i>
+          <i class="ph-fill ph-telegram-logo text-base text-wood dark:text-wood-light"></i>
           <span>Telegram</span>
         </a>
       </div>
     </div>
   </div>
 
-
   <!-- ===================================================================== -->
-  <!-- CONFIGURAÇÃO CENTRAL DO SITE (FÁCIL EDIÇÃO PARA O GITHUB PAGES)       -->
+  <!-- CONFIGURAÇÃO CENTRAL — ASHOME CURADORIA                               -->
   <!-- ===================================================================== -->
   <script>
     /**
      * ========================================================================
-     * 🛠️ ÁREA DE EDIÇÃO RÁPIDA (SITE_CONFIG)
+     * ÁREA DE EDIÇÃO RÁPIDA (SITE_CONFIG)
      * ========================================================================
-     * Para adicionar, remover ou alterar qualquer botão da página:
-     * Basta editar a lista `links` abaixo e salvar o arquivo no GitHub!
-     * Não é necessário mexer no restante do código HTML.
+     * Para adicionar novas peças, episódios ou trocar fotos:
+     * 1. Suba a foto limpa em ./assets/posts/
+     * 2. Atualize ou adicione um item na lista `curations` abaixo.
      */
     const SITE_CONFIG = {
       profile: {
-        name: "Ashô | Achadinhos da Shirley",
-        handle: "@ashodinhos_promos",
-        verifiedLabel: "Curadoria de Achadinhos",
-        // 💡 DICA: Para usar sua própria foto no GitHub Pages, suba uma imagem chamada
-        // "perfil.jpg" junto com o index.html e troque a linha abaixo para: "./perfil.jpg"
+        brandTitle: "ASHOME CURADORIA",
+        displayName: "AsHome Curadoria",
+        handle: "@ashome.curadoria",
+        tagline: "Uma casa com intenção é o luxo, sem bolso fundo.",
+        microDescription: "Curadoria, não volume. Só o que eu compraria.",
         avatarUrl: "./asho_pp.jpeg",
-        avatarFallbackInitials: "AS",
-        bioLines: [
-          "🛍️ SÓ indico produtos bem avaliados",
-          "🛒 Promoções e descontos pra você aproveitar",
-          "💎 Recomeçando e rumo a vitória"
-        ],
-        instagramUrl: "https://instagram.com/ashodinhos_promos",
+        avatarFallbackInitials: "AH",
+        instagramUrl: "https://instagram.com/ashome.curadoria",
         storefrontUrl: "https://collshp.com/ashodinhos_promos?view=storefront"
       },
 
-      // Botão principal fixo no topo (Vitrine Geral da Shopee)
-      mainStorefrontCta: {
-        title: "🛍️ Minha Vitrine Completa na Shopee",
-        subtitle: "Todos os achadinhos dos Reels",
-        badge: "OFICIAL",
-        url: "https://collshp.com/ashodinhos_promos?view=storefront"
-      },
-
-      grupoWpp: {
-        title: "📱 Meu Grupo no Whatsapp",
-        subtitle: "Receba ofertas direto no seu Whatsapp!",
-        badge: "OFICIAL",
+      // Bloco de Conversão Principal — Grupo de Curadorias AsHome
+      curadoriaGroup: {
+        title: "Grupo de Curadorias AsHome",
+        description: "Onde compartilho os links diretos, medidas, materiais e condições reais de cada peça selecionada.",
+        ctaLabel: "Entrar no Grupo de Curadorias",
+        vipEyebrow: "PASSO FINAL • ACESSO GRATUITO",
+        vipDescription: "Entre para receber os links diretos, medidas, materiais e condições reais das peças apresentadas nos vídeos.",
+        vipHelper: "Acesso direto pelo WhatsApp • Curadoria calma, sem excesso.",
         url: "https://chat.whatsapp.com/IBv1Ajo3hHoKSPxBfnGJvn?s=cl&p=i&iam=2"
       },
 
-      // Pílulas de categorias (inspiradas nos Destaques do Instagram @ashodinhos_promos)
-      categories: [
-        { id: "Todos", label: "Todos", icon: "✨" },
-        { id: "Novidades", label: "Novidades", icon: "🌸" },
-        { id: "Casa & Quarto", label: "Casa & Quarto", icon: "🏠" },
-        { id: "Banheiro", label: "Banheiro", icon: "🚿" },
-        { id: "Cozinha", label: "Cozinha", icon: "🍳" },
-        { id: "Luxo", label: "Luxo", icon: "💎" },
-        { id: "Black Friday & 11.11", label: "Black Friday & 11.11", icon: "🖤" },
-        { id: "Até R$50", label: "Até R$50", icon: "💸" }
+      // Link discreto para a Vitrine Completa na Shopee
+      storefrontLink: {
+        title: "Vitrine completa na Shopee",
+        subtitle: "Peças selecionadas reunidas em um só lugar",
+        url: "https://collshp.com/ashodinhos_promos?view=storefront"
+      },
+
+      // Atalhos de palavras-chave citadas nos vídeos/posts recentes
+      videoKeywords: ["COLORIDO", "VERDE", "AZUL", "TERRACOTA", "BORDÔ", "CAFÉ"],
+
+      // Os 5 Pilares Editoriais oficiais
+      editorials: [
+        {
+          id: "teoria-da-semana",
+          title: "Teoria da semana",
+          subtitle: "Ideias de design aplicadas na prática",
+          icon: "ph-compass"
+        },
+        {
+          id: "um-detalhe-so",
+          title: "Um detalhe só",
+          subtitle: "Peças únicas que mudam o ambiente sem reforma",
+          icon: "ph-sparkle"
+        },
+        {
+          id: "mesa-posta",
+          title: "Mesa posta",
+          subtitle: "Cozinha e mesa com intenção",
+          icon: "ph-coffee"
+        },
+        {
+          id: "1-peca-3-estilos",
+          title: "1 peça, 3 estilos",
+          subtitle: "O mesmo item em diferentes cenários",
+          icon: "ph-squares-four"
+        },
+        {
+          id: "comprei-e-recomendo",
+          title: "Comprei e recomendo",
+          subtitle: "Itens testados no uso diário",
+          icon: "ph-check-circle"
+        }
       ],
 
       // ======================================================================
-      // LISTA DE COLEÇÕES E ACHADINHOS
-      // Para adicionar um novo link, copie um bloco { ... }, cole abaixo e edite!
+      // VITRINE / MOODBOARD RECENTE (Episódio 1 — Móvel Colorido)
+      // Nota: substitua os arquivos em ./assets/posts/ quando tiver fotos limpas.
       // ======================================================================
-      links: [
+      curations: [
         {
-          id: "casa-comprei-amei",
-          title: "Itens de Casa que Comprei e Amei",
-          highlightWord: "Casa",
-          subtitle: "Organizadores, decoração aconchegante e utilidades que comprei esses dias e são ótimos!",
-          category: "Casa & Quarto",
-          extraCategories: ["Novidades"],
-          badge: "🔥 Mais pedido",
-          icon: "ph-house-line",
-          featuredBanner: true, // Deixa o card com destaque visual magenta estilo capa dos Reels
-          url: "https://collshp.com/ashodinhos_promos/category/4455934"
+          id: "ep1-poltrona-veludo-verde",
+          title: "Poltrona de veludo verde",
+          editorialId: "teoria-da-semana",
+          episode: "Episódio 1 • Móvel Colorido",
+          room: "Sala de estar",
+          materials: "Veludo verde profundo e braços em madeira natural",
+          note: "Em uma base neutra de madeira e linho, um único móvel colorido vira ponto focal sem pesar no ambiente. O desenho leve com braços de madeira traz aconchego imediato.",
+          keywords: ["COLORIDO", "VERDE", "POLTRONA", "SALA"],
+          image: "./assets/posts/ep1-capa-poltrona-verde.jpg",
+          aiStaged: true,
+          url: "" // Quando tiver link direto de afiliada, cole aqui; vazio direciona ao Grupo de Curadorias
+        },
+        {
+          id: "ep1-aparador-azul-cafe",
+          title: "Aparador azul canto do café",
+          editorialId: "um-detalhe-so",
+          episode: "Episódio 1 • Móvel Colorido",
+          room: "Canto do café",
+          materials: "Azul fechado fosco com pés e puxador de madeira",
+          note: "Um detalhe só que resolve a bancada do café com proporção equilibrada. Organiza cafeteira, xícaras e livros de apoio enquanto aquece o ambiente com os pés torneados em madeira.",
+          keywords: ["COLORIDO", "AZUL", "CAFÉ", "APARADOR"],
+          image: "./assets/posts/ep1-aparador-azul.jpg",
+          aiStaged: true,
+          url: ""
+        },
+        {
+          id: "ep1-sofa-cama-azul",
+          title: "Sofá-cama azul em veludo",
+          editorialId: "1-peca-3-estilos",
+          episode: "Episódio 1 • Móvel Colorido",
+          room: "Quarto / Estúdio",
+          materials: "Base estofada em azul profundo combinada com linho cru",
+          note: "Funciona bem tanto como apoio na sala quanto como quarto de hóspedes acolhedor. Equilibrar o azul com linho natural e tapete de fibra deixa o visual sereno.",
+          keywords: ["COLORIDO", "AZUL", "SOFÁ", "QUARTO"],
+          image: "./assets/posts/ep1-sofa-cama-azul.jpg",
+          aiStaged: true,
+          url: ""
+        },
+        {
+          id: "ep1-cadeiras-terracota",
+          title: "Conjunto 4 cadeiras terracota",
+          editorialId: "mesa-posta",
+          episode: "Episódio 1 • Móvel Colorido",
+          room: "Sala de jantar",
+          materials: "Estofado terracota com encosto em gomos e pés de madeira",
+          note: "O encosto anatômico em gomos traz presença para a mesa de jantar sem excesso visual. O terracota conversa naturalmente com pedra clara, cerâmica e luz quente de fim de tarde.",
+          keywords: ["COLORIDO", "TERRACOTA", "CADEIRAS", "JANTAR"],
+          image: "./assets/posts/ep1-cadeiras-terracota.jpg",
+          aiStaged: true,
+          url: ""
+        },
+        {
+          id: "ep1-cabeceira-bordo",
+          title: "Mesa de cabeceira bordô",
+          editorialId: "um-detalhe-so",
+          episode: "Episódio 1 • Móvel Colorido",
+          room: "Quarto",
+          materials: "Acabamento bordô profundo com puxadores retos de madeira",
+          note: "Um toque de cor ao lado da cama muda a leitura do quarto inteiro, sem reforma. O bordô profundo cria contraste calmo com roupas de cama em tons claros.",
+          keywords: ["COLORIDO", "BORDÔ", "CABECEIRA", "QUARTO"],
+          image: "./assets/posts/ep1-cabeceira-bordo.jpg",
+          aiStaged: true,
+          url: ""
         }
       ]
     };
 
-
     // ========================================================================
-    // LÓGICA DE RENDERIZAÇÃO E INTERATIVIDADE (À PROVA DE FALHAS)
+    // ESTADO DA APLICAÇÃO
     // ========================================================================
-
-    let currentCategory = "Todos";
+    let activeEditorial = "all";
+    let activeKeyword = "";
     let searchQuery = "";
 
-    // Utilitário para acessar localStorage com segurança (não quebra em iframes restritos)
+    // Estado interno da Gaveta de Curadoria
+    let drawerSearchQuery = "";
+    let drawerActiveTag = "ALL";
+    let drawerSelectedId = SITE_CONFIG.curations[0]?.id || null;
+    let drawerPreloaded = false;
+
+    // ========================================================================
+    // UTILITÁRIOS SEGUROS
+    // ========================================================================
     function safeGetStorage(key) {
       try {
         return window.localStorage.getItem(key);
@@ -474,12 +661,9 @@
     function safeSetStorage(key, value) {
       try {
         window.localStorage.setItem(key, value);
-      } catch (e) {
-        // Ignora silenciosamente se o navegador bloquear cookies/storage em iframe
-      }
+      } catch (e) {}
     }
 
-    // Utilitário para escapar HTML com segurança
     function escapeHtml(str) {
       if (!str) return "";
       return String(str)
@@ -490,391 +674,809 @@
         .replace(/'/g, "&#039;");
     }
 
-    // Destaca a palavra-chave em estilo Serif Itálico Dourado/Rosa como nas capas dos Reels da Ashô
-    function formatStyledTitle(title, highlightWord, isFeaturedBanner) {
-      const safeTitle = escapeHtml(title);
-      if (!highlightWord) return safeTitle;
-      const safeHighlight = escapeHtml(highlightWord);
-      const regex = new RegExp(`(${safeHighlight})`, "i");
-
-      const highlightClass = isFeaturedBanner
-        ? "font-serif italic font-bold text-amber-300 tracking-wide px-0.5"
-        : "font-serif italic font-bold text-brand-600 dark:text-brand-400 tracking-wide px-0.5";
-
-      return safeTitle.replace(regex, `<span class="${highlightClass}">$1</span>`);
+    function normalizeText(str) {
+      return String(str || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
     }
 
-    // 1. Renderizar Cabeçalho do Perfil
+    function getEditorialById(editorialId) {
+      return SITE_CONFIG.editorials.find(ed => ed.id === editorialId);
+    }
+
+    // ========================================================================
+    // RASTREAMENTO CENTRALIZADO: META PIXEL + GOOGLE TAG MANAGER (dataLayer)
+    // ========================================================================
+    function trackPixel(type, eventName, params = {}, sendToGa = true) {
+      if (typeof fbq === "function") {
+        fbq(type, eventName, params);
+      }
+
+      if (!sendToGa) return;
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "pixel_track",
+        ga_event_name: eventName,
+        event_type: type,
+        content_name: params.content_name ?? null,
+        content_category: params.content_category ?? null,
+        content_ids: Array.isArray(params.content_ids)
+          ? params.content_ids.join(",")
+          : (params.content_ids ?? null),
+        destination_url: params.destination_url ?? null,
+        page_mode: params.page_mode ?? null,
+        _clear: true
+      });
+    }
+
+    function isVipLandingMode() {
+      const params = new URLSearchParams(window.location.search);
+      return params.has("vip") || window.location.hash === "#vip";
+    }
+
+    function handleGroupCtaNavigation(event, triggerBtn, sourceLabel) {
+      if (event) event.preventDefault();
+      const targetUrl = SITE_CONFIG.curadoriaGroup.url;
+      const isVip = isVipLandingMode();
+      const modeLabel = isVip ? "vip_landing" : (sourceLabel || "full_linktree");
+
+      trackPixel("trackCustom", "join_whatsapp_group", {
+        content_name: SITE_CONFIG.curadoriaGroup.title,
+        page_mode: modeLabel
+      });
+
+      trackPixel("track", "Contact", {
+        content_name: isVip
+          ? "Grupo de Curadorias AsHome (LP Anuncio)"
+          : "Grupo de Curadorias AsHome (Linktree Bio)",
+        page_mode: modeLabel
+      });
+
+      if (isVip) {
+        trackPixel("trackCustom", "join_whatsapp_vip_ad", {
+          content_name: "Grupo de Curadorias AsHome (LP Anuncio)"
+        }, false);
+      }
+
+      if (triggerBtn) {
+        const labelEl = triggerBtn.querySelector("[data-cta-label]");
+        if (labelEl) {
+          labelEl.textContent = "Abrindo o Grupo de Curadorias...";
+        }
+      }
+
+      // Aguarda 300ms para o fbevents.js despachar o evento antes do redirecionamento
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 300);
+    }
+
+    // ========================================================================
+    // RENDERIZAÇÃO DAS 5 SEÇÕES
+    // ========================================================================
+
+    // Seção 1: Header & Assinatura da Marca
     function renderProfileHeader() {
-      const { name, handle, avatarUrl, avatarFallbackInitials, bioLines, instagramUrl } = SITE_CONFIG.profile;
+      const { brandTitle, displayName, avatarUrl, avatarFallbackInitials, tagline, microDescription, instagramUrl } = SITE_CONFIG.profile;
       const headerEl = document.getElementById("profileHeader");
 
       headerEl.innerHTML = `
-        <div class="relative inline-block mb-3">
-          <div class="w-28 h-28 rounded-full avatar-ring shadow-lg mx-auto">
-            <div class="w-full h-full rounded-full overflow-hidden bg-sand-100 dark:bg-plum-800 border-2 border-white dark:border-plum-900 flex items-center justify-center relative">
-              <img
-                src="${escapeHtml(avatarUrl)}"
-                alt="${escapeHtml(name)}"
-                class="w-full h-full object-cover"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              />
-              <div style="display:none;" class="w-full h-full items-center justify-center bg-gradient-to-br from-brand-500 to-purple-700 text-white font-serif italic text-3xl font-bold">
-                ${escapeHtml(avatarFallbackInitials)}
-              </div>
-            </div>
-          </div>
-          <!-- Emblema Verificado / Brilho -->
+        <div class="inline-block mb-4">
           <a
             href="${escapeHtml(instagramUrl)}"
             target="_blank"
             rel="noopener noreferrer"
-            title="Ver Instagram ${escapeHtml(handle)}"
-            class="absolute bottom-0.5 right-0.5 w-8 h-8 rounded-full bg-brand-600 text-white border-2 border-white dark:border-plum-900 shadow-md flex items-center justify-center hover:scale-110 transition-transform"
+            aria-label="Instagram ${escapeHtml(displayName)}"
+            class="block w-24 h-24 rounded-full p-[3px] border border-wood/70 dark:border-wood-light/70 bg-cream-light dark:bg-espresso-card mx-auto transition-transform hover:scale-[1.02]"
           >
-            <i class="ph-fill ph-sparkle text-amber-300 text-sm"></i>
+            <div class="w-full h-full rounded-full overflow-hidden bg-cream dark:bg-espresso-elevated flex items-center justify-center">
+              <img
+                src="${escapeHtml(avatarUrl)}"
+                alt="${escapeHtml(displayName)}"
+                class="w-full h-full object-cover"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div style="display:none;" class="w-full h-full items-center justify-center bg-wine text-cream-light font-serif font-bold text-2xl">
+                ${escapeHtml(avatarFallbackInitials)}
+              </div>
+            </div>
           </a>
         </div>
 
-        <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight text-stone-900 dark:text-white flex items-center justify-center gap-1.5">
-          <span>${escapeHtml(name)}</span>
-        </h1>
+        <div class="space-y-2.5">
+          <div>
+            <h1 class="ashome-band inline-block px-3.5 py-1 text-[17px] sm:text-[19px] leading-snug rounded-[3px]">
+              ${escapeHtml(brandTitle)}
+            </h1>
+          </div>
 
+          <p class="font-serif italic text-[17px] sm:text-[18px] leading-snug text-espresso dark:text-cream-light max-w-[360px] mx-auto">
+            “${escapeHtml(tagline)}”
+          </p>
+
+          <p class="text-xs sm:text-[13px] text-espresso-ink dark:text-espresso-darkMuted">
+            ${escapeHtml(microDescription)}
+          </p>
+        </div>
       `;
     }
 
-    // 2. Renderizar Botão Principal da Vitrine Shopee
-    function renderPrimaryCta() {
-      const cta = SITE_CONFIG.mainStorefrontCta;
+    // Seção 2A: Card de Conversão Principal — Grupo de Curadorias AsHome
+    function renderPrimaryGpWPP(isVip = false) {
+      const group = SITE_CONFIG.curadoriaGroup;
+      const container = document.getElementById("primaryGpWPP");
+
+      const eyebrowHtml = isVip
+        ? `<span class="ashome-band inline-block text-[10px] px-2 py-0.5 rounded-[3px] mb-2.5">${escapeHtml(group.vipEyebrow)}</span>`
+        : `<p class="text-[11px] font-semibold uppercase tracking-[0.12em] text-wood dark:text-wood-light mb-1.5">Comunidade fechada</p>`;
+
+      const descriptionText = isVip ? group.vipDescription : group.description;
+      const helperHtml = isVip
+        ? `<p class="text-[11.5px] text-espresso-muted dark:text-espresso-darkMuted text-center mt-2.5">${escapeHtml(group.vipHelper)}</p>`
+        : "";
+
+      container.innerHTML = `
+        <div class="rounded-card bg-cream-light dark:bg-espresso-card border border-cream-border dark:border-espresso-border border-t-[3px] border-t-wood dark:border-t-wood-light p-5">
+          ${eyebrowHtml}
+          <h2 class="font-serif font-bold text-[19px] leading-snug text-espresso dark:text-cream-light">
+            ${escapeHtml(group.title)}
+          </h2>
+          <p class="text-[13px] leading-relaxed text-espresso-ink dark:text-espresso-darkMuted mt-1.5 mb-4">
+            ${escapeHtml(descriptionText)}
+          </p>
+
+          <a
+            id="grupoWppBtn"
+            href="${escapeHtml(group.url)}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-btn bg-wine hover:bg-wine-hover text-cream-light text-sm font-semibold transition-colors"
+          >
+            <i class="ph-fill ph-whatsapp-logo text-base"></i>
+            <span data-cta-label>${escapeHtml(group.ctaLabel)}</span>
+            <i class="ph-bold ph-arrow-right text-sm"></i>
+          </a>
+          ${helperHtml}
+        </div>
+      `;
+    }
+
+    // Seção 2B: Link discreto para a Vitrine Shopee
+    function renderStorefrontLink() {
+      const link = SITE_CONFIG.storefrontLink;
       const container = document.getElementById("primaryCtaSection");
 
       container.innerHTML = `
         <a
           id="mainStorefrontBtn"
-          href="${escapeHtml(cta.url)}"
+          href="${escapeHtml(link.url)}"
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative block w-full rounded-3xl p-4 sm:p-5 asho-magenta-card text-white shadow-lg animate-pulseGlow overflow-hidden transition-all duration-300 hover:scale-[1.015] active:scale-[0.99]"
+          class="group flex items-center justify-between gap-3 rounded-card bg-cream-light dark:bg-espresso-card border border-cream-border dark:border-espresso-border hover:border-wood dark:hover:border-wood-light px-4 py-3 transition-colors"
         >
-          <!-- Efeito de brilho passando -->
-          <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent animate-shimmer pointer-events-none"></div>
-
-          <!-- Estrelinhas decorativas iguais às capas do IG da Ashô -->
-          <span class="absolute top-2.5 right-12 text-amber-300/80 text-xs pointer-events-none select-none">✦</span>
-          <span class="absolute bottom-2.5 left-10 text-amber-300/60 text-[10px] pointer-events-none select-none">✦</span>
-
-          <div class="relative z-10 flex items-center justify-between gap-3">
-            <div class="flex items-center gap-3.5 text-left">
-              <div class="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shrink-0 shadow-inner">
-                <i class="ph-fill ph-shopping-bag-open text-2xl text-amber-200"></i>
-              </div>
-              <div>
-                <div class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-300 text-stone-900 text-[10px] font-extrabold uppercase tracking-wider mb-1">
-                  <span>✨ ${escapeHtml(cta.badge)}</span>
-                </div>
-                <h2 class="font-extrabold text-sm sm:text-base leading-tight text-white">
-                  ${escapeHtml(cta.title)}
-                </h2>
-                <p class="text-xs text-pink-100/90 mt-0.5 line-clamp-1">
-                  ${escapeHtml(cta.subtitle)}
-                </p>
-              </div>
-            </div>
-
-            <div class="w-9 h-9 rounded-full bg-white/20 group-hover:bg-white group-hover:text-brand-600 flex items-center justify-center shrink-0 transition-all">
-              <i class="ph-bold ph-arrow-up-right text-lg"></i>
-            </div>
-          </div>
-        </a>
-      `;
-    }
-
-
-    // 2. Renderizar Grupo Whatsapp
-    // 2. Renderizar Grupo Whatsapp (Com seta animada opcional para o Modo VIP)
-    function renderPrimaryGpWPP(showVisualArrow = false) {
-      const wpp = SITE_CONFIG.grupoWpp;
-      const container = document.getElementById("primaryGpWPP");
-
-      const visualArrowHtml = showVisualArrow
-        ? `
-          <a
-            href="${escapeHtml(wpp.url)}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex flex-col items-center justify-center mb-3 select-none cursor-pointer group active:scale-95 transition-transform"
-          >
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white-100 dark:bg-white-950/90 border-2 border-white-500 text-white-900 dark:text-white-200 text-xs sm:text-sm font-extrabold shadow-sm group-hover:scale-105 transition-transform">
-              <span>👇 TOQUE NO BOTÃO VERDE ABAIXO 👇</span>
-            </div>
-            <div class="flex items-center justify-center gap-6 text-emerald-600 dark:text-emerald-400 text-3xl animate-bounce-down mt-1">
-              <i class="ph-bold ph-arrow-fat-lines-down"></i>
-              <i class="ph-bold ph-arrow-fat-lines-down"></i>
-            </div>
-          </a>
-        `
-        : "";
-
-      const extraVipClasses = showVisualArrow
-        ? "vip-cta-highlight ring-4 ring-emerald-400/60 py-5"
-        : "animate-whatsappGlow";
-
-      container.innerHTML = `
-        ${visualArrowHtml}
-        <a
-          id="grupoWppBtn"
-          href="${escapeHtml(wpp.url)}"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group relative block w-full rounded-3xl p-4 sm:p-5 asho-green-card text-white shadow-lg ${extraVipClasses} overflow-hidden transition-all duration-300 hover:scale-[1.015] active:scale-[0.99]"
-        >
-          <!-- Efeito de brilho passando -->
-          <div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent animate-shimmer pointer-events-none"></div>
-
-          <!-- Estrelinhas decorativas iguais às capas do IG da Ashô -->
-          <span class="absolute top-2.5 right-12 text-white/80 text-xs pointer-events-none select-none">✦</span>
-          <span class="absolute bottom-2.5 left-10 text-white/60 text-[10px] pointer-events-none select-none">✦</span>
-
-          <!-- DEPOIS (sem justify-between e sem div sobrando) -->
-          <div class="relative z-10 flex items-center gap-3.5 text-left">
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center shrink-0 shadow-inner">
-              <i class="ph-fill ph-whatsapp-logo text-3xl text-amber-200"></i>
-            </div>
-            <div>
-              <div class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-300 text-stone-900 text-[11px] font-extrabold uppercase tracking-wider mb-1">
-                <span>✨ ${escapeHtml(wpp.badge)}</span>
-              </div>
-              <h2 class="font-extrabold text-base sm:text-lg leading-tight text-white">
-                ${escapeHtml(wpp.title)}
-              </h2>
-              <p class="text-xs sm:text-sm text-emerald-50 font-medium mt-0.5">
-                ${escapeHtml(wpp.subtitle)}
+          <div class="flex items-center gap-3 min-w-0">
+            <span class="w-9 h-9 rounded-btn bg-cream dark:bg-espresso-elevated border border-cream-border dark:border-espresso-border text-wood dark:text-wood-light flex items-center justify-center shrink-0">
+              <i class="ph ph-storefront text-lg"></i>
+            </span>
+            <div class="min-w-0">
+              <p class="text-[13px] font-semibold text-espresso dark:text-cream-light leading-snug truncate">
+                ${escapeHtml(link.title)}
+              </p>
+              <p class="text-[11.5px] text-espresso-muted dark:text-espresso-darkMuted truncate">
+                ${escapeHtml(link.subtitle)}
               </p>
             </div>
           </div>
+          <i class="ph ph-arrow-up-right text-base text-wood dark:text-wood-light group-hover:text-wine dark:group-hover:text-butter shrink-0 transition-colors"></i>
         </a>
       `;
     }
 
-    // Helpers de filtragem (usados pelas pílulas e pela lista)
-    function itemMatchesCategory(item, categoryId) {
-      return (
-        categoryId === "Todos" ||
-        item.category === categoryId ||
-        (Array.isArray(item.extraCategories) && item.extraCategories.includes(categoryId))
-      );
-    }
-
-    function itemMatchesSearch(item) {
-      const q = searchQuery.trim().toLowerCase();
-      return (
-        !q ||
-        item.title.toLowerCase().includes(q) ||
-        item.subtitle.toLowerCase().includes(q) ||
-        item.category.toLowerCase().includes(q) ||
-        (item.badge && item.badge.toLowerCase().includes(q)) ||
-        (item.priceTag && item.priceTag.toLowerCase().includes(q))
-      );
-    }
-
-    // 3. Renderizar Pílulas de Categorias (só mostra categorias que têm ao menos 1 coleção)
-    function renderCategoryPills() {
-      const container = document.getElementById("categoryPillsContainer");
-
-      const visibleCategories = SITE_CONFIG.categories.filter(cat =>
-        cat.id === "Todos" ||
-        SITE_CONFIG.links.some(item => itemMatchesCategory(item, cat.id) && itemMatchesSearch(item))
-      );
-
-      // Se a categoria ativa sumiu (ex.: por causa da busca), volta para "Todos"
-      if (!visibleCategories.some(cat => cat.id === currentCategory)) {
-        currentCategory = "Todos";
-      }
-
-      // Se só sobrou "Todos", esconde a barra de pílulas inteira
-      container.classList.toggle("hidden", visibleCategories.length <= 1);
-
-      container.innerHTML = visibleCategories
-        .map(cat => {
-          const isActive = cat.id === currentCategory;
-          const activeClasses = isActive
-            ? "bg-brand-600 text-white border-brand-600 shadow-md shadow-brand-600/25 scale-[1.02]"
-            : "bg-white dark:bg-plum-800/90 text-stone-700 dark:text-stone-200 border-stone-200/90 dark:border-plum-700 hover:border-brand-400";
+    // Seção 2C: Atalhos de palavras-chave dos vídeos
+    function renderKeywordChips() {
+      const container = document.getElementById("keywordChipsContainer");
+      container.innerHTML = SITE_CONFIG.videoKeywords
+        .map(keyword => {
+          const isActive = activeKeyword === keyword;
+          const classes = isActive
+            ? "bg-butter text-wine border-butter font-serif font-bold tracking-[0.06em]"
+            : "bg-cream dark:bg-espresso-elevated text-espresso-ink dark:text-cream border-cream-border dark:border-espresso-border hover:border-wood dark:hover:border-wood-light font-medium";
 
           return `
             <button
               type="button"
-              data-category="${escapeHtml(cat.id)}"
-              class="category-pill shrink-0 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border text-xs font-bold transition-all active:scale-95 ${activeClasses}"
+              data-keyword="${escapeHtml(keyword)}"
+              class="keyword-chip shrink-0 px-2.5 py-1 rounded-[6px] border text-[11px] uppercase transition-colors ${classes}"
             >
-              <span>${escapeHtml(cat.icon)}</span>
-              <span>${escapeHtml(cat.label)}</span>
+              ${escapeHtml(keyword)}
             </button>
           `;
         })
         .join("");
 
-      // Eventos de clique nas pílulas
-      container.querySelectorAll(".category-pill").forEach(btn => {
+      container.querySelectorAll(".keyword-chip").forEach(btn => {
         btn.addEventListener("click", () => {
-          currentCategory = btn.getAttribute("data-category");
-          renderCategoryPills();
-          renderLinks();
+          const kw = btn.getAttribute("data-keyword");
+          activeKeyword = activeKeyword === kw ? "" : kw;
+
+          if (activeKeyword) {
+            trackPixel("trackCustom", "click_video_keyword", {
+              content_name: activeKeyword
+            });
+          }
+
+          renderKeywordChips();
+          renderMoodboard();
+
+          if (activeKeyword) {
+            document.getElementById("moodboardSection")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
         });
       });
     }
 
-    // 4. Renderizar Cards de Links Filtrados
-    function renderLinks() {
-      const container = document.getElementById("linksContainer");
+    // Seção 3: Navegação por Editorias (5 pilares)
+    function renderEditorials() {
+      const container = document.getElementById("editorialsContainer");
+      const resetTopBtn = document.getElementById("resetEditorialTopBtn");
+
+      if (resetTopBtn) {
+        resetTopBtn.classList.toggle("hidden", activeEditorial === "all");
+      }
+
+      container.innerHTML = SITE_CONFIG.editorials
+        .map(ed => {
+          const count = SITE_CONFIG.curations.filter(item => item.editorialId === ed.id).length;
+          const isActive = activeEditorial === ed.id;
+          const cardClasses = isActive
+            ? "bg-cream-light dark:bg-espresso-elevated border-wine dark:border-butter"
+            : "bg-cream-light dark:bg-espresso-card border-cream-border dark:border-espresso-border hover:border-wood dark:hover:border-wood-light";
+
+          const countBadge = count > 0
+            ? `<span class="text-[11px] font-medium text-espresso-muted dark:text-espresso-darkMuted">${count} ${count === 1 ? "peça" : "peças"}</span>`
+            : `<span class="text-[10.5px] text-espresso-muted/80 dark:text-espresso-darkMuted/80">Em breve</span>`;
+
+          return `
+            <button
+              type="button"
+              data-editorial-id="${escapeHtml(ed.id)}"
+              class="editorial-card w-full text-left rounded-card border px-4 py-3.5 flex items-center justify-between gap-3 transition-colors ${cardClasses}"
+            >
+              <div class="flex items-start gap-3 min-w-0">
+                <span class="w-8 h-8 rounded-btn bg-cream dark:bg-espresso border border-cream-border dark:border-espresso-border text-wood dark:text-wood-light flex items-center justify-center shrink-0 mt-0.5">
+                  <i class="ph ${escapeHtml(ed.icon)} text-base"></i>
+                </span>
+                <div class="min-w-0">
+                  <div class="flex items-center gap-2">
+                    <h3 class="text-[13.5px] font-semibold text-espresso dark:text-cream-light leading-snug">
+                      ${escapeHtml(ed.title)}
+                    </h3>
+                    ${isActive ? `<span class="ashome-band text-[9px] px-1.5 py-0.5 rounded-[3px]">ATIVA</span>` : ""}
+                  </div>
+                  <p class="text-xs text-espresso-muted dark:text-espresso-darkMuted mt-0.5 leading-snug">
+                    ${escapeHtml(ed.subtitle)}
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5 shrink-0">
+                ${countBadge}
+                <i class="ph ph-caret-right text-sm text-wood dark:text-wood-light"></i>
+              </div>
+            </button>
+          `;
+        })
+        .join("");
+
+      container.querySelectorAll(".editorial-card").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const edId = btn.getAttribute("data-editorial-id");
+          activeEditorial = activeEditorial === edId ? "all" : edId;
+
+          const edObj = getEditorialById(edId);
+          if (activeEditorial !== "all" && edObj) {
+            trackPixel("trackCustom", "filter_editorial", {
+              content_category: edObj.title
+            });
+          }
+
+          renderEditorials();
+          renderMoodboard();
+          document.getElementById("moodboardSection")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+    }
+
+    // Filtros compartilhados para o Moodboard principal
+    function getFilteredCurations() {
+      const q = normalizeText(searchQuery.trim());
+      const kw = normalizeText(activeKeyword);
+
+      return SITE_CONFIG.curations.filter(item => {
+        const matchesEditorial = activeEditorial === "all" || item.editorialId === activeEditorial;
+        const editorial = getEditorialById(item.editorialId);
+
+        const searchableBlob = normalizeText([
+          item.title,
+          item.room,
+          item.materials,
+          item.note,
+          item.episode,
+          editorial?.title || "",
+          ...(item.keywords || [])
+        ].join(" "));
+
+        const matchesKeyword = !kw || (item.keywords || []).some(k => normalizeText(k) === kw) || searchableBlob.includes(kw);
+        const matchesQuery = !q || searchableBlob.includes(q);
+
+        return matchesEditorial && matchesKeyword && matchesQuery;
+      });
+    }
+
+    // Seção 4: Moodboard / Vitrine Recente (Grade 2 colunas, fundo branco puro)
+    function renderMoodboard() {
+      const grid = document.getElementById("moodboardGrid");
       const emptyState = document.getElementById("emptyState");
       const resultsCounter = document.getElementById("resultsCounter");
-      const activeCategoryLabel = document.getElementById("activeCategoryLabel");
+      const activeFilterLabel = document.getElementById("activeFilterLabel");
 
-      const filteredLinks = SITE_CONFIG.links.filter(
-        item => itemMatchesCategory(item, currentCategory) && itemMatchesSearch(item)
-      );
+      const items = getFilteredCurations();
 
-      // Atualiza cabeçalho da seção
-      activeCategoryLabel.textContent =
-        currentCategory === "Todos" ? "Coleções em Destaque" : `Categoria: ${currentCategory}`;
-      resultsCounter.textContent = `${filteredLinks.length} ${filteredLinks.length === 1 ? "coleção" : "coleções"}`;
+      if (activeEditorial !== "all") {
+        const ed = getEditorialById(activeEditorial);
+        activeFilterLabel.textContent = ed ? ed.title : "Moodboard Recente";
+      } else if (activeKeyword) {
+        activeFilterLabel.textContent = `Palavra-chave: ${activeKeyword}`;
+      } else if (searchQuery.trim()) {
+        activeFilterLabel.textContent = `Busca: “${searchQuery.trim()}”`;
+      } else {
+        activeFilterLabel.textContent = "Moodboard Recente";
+      }
 
-      if (filteredLinks.length === 0) {
-        container.innerHTML = "";
+      resultsCounter.textContent = `${items.length} ${items.length === 1 ? "peça" : "peças"}`;
+
+      if (items.length === 0) {
+        grid.innerHTML = "";
         emptyState.classList.remove("hidden");
         return;
       }
 
       emptyState.classList.add("hidden");
 
-      container.innerHTML = filteredLinks
+      grid.innerHTML = items
         .map(item => {
-          const styledTitle = formatStyledTitle(item.title, item.highlightWord, item.featuredBanner);
-          const iconClass = item.icon || "ph-sparkle";
+          const editorial = getEditorialById(item.editorialId);
+          const editorialLabel = editorial ? editorial.title : "Curadoria";
 
-          // Caso seja um card com visual Magenta em destaque (inspirado nas capas dos Reels)
-          if (item.featuredBanner) {
-            return `
-              <a
-                href="${escapeHtml(item.url)}"
-                data-link-id="${escapeHtml(item.id)}"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group relative block rounded-2xl p-4 asho-magenta-card text-white shadow-md hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.99] overflow-hidden"
-              >
-                <span class="absolute top-2 right-10 text-amber-300/70 text-xs pointer-events-none">✦</span>
-                <div class="flex items-start justify-between gap-3">
-                  <div class="flex items-start gap-3.5">
-                    <div class="w-11 h-11 rounded-xl bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shrink-0 mt-0.5">
-                      <i class="ph-fill ${escapeHtml(iconClass)} text-xl text-amber-300"></i>
-                    </div>
-                    <div>
-                      <div class="flex flex-wrap items-center gap-1.5 mb-1">
-                        ${
-                          item.badge
-                            ? `<span class="inline-flex items-center px-2 py-0.5 rounded-md bg-amber-300 text-stone-900 text-[10px] font-extrabold">${escapeHtml(item.badge)}</span>`
-                            : ""
-                        }
-                        <span class="text-[10px] font-semibold text-pink-100 bg-white/15 px-2 py-0.5 rounded-md">
-                          ${escapeHtml(item.category)}
-                        </span>
-                      </div>
-                      <h3 class="font-bold text-sm sm:text-[15px] leading-snug text-white">
-                        ${styledTitle}
-                      </h3>
-                      <p class="text-xs text-pink-100/90 mt-1 leading-relaxed">
-                        ${escapeHtml(item.subtitle)}
-                      </p>
-                    </div>
-                  </div>
-                  <div class="w-8 h-8 rounded-full bg-white/15 group-hover:bg-white group-hover:text-brand-600 flex items-center justify-center shrink-0 transition-colors mt-1">
-                    <i class="ph-bold ph-caret-right text-base"></i>
-                  </div>
-                </div>
-              </a>
-            `;
-          }
-
-          // Card padrão elegante (Creme / Branco no Light, Plum no Dark)
           return `
-            <a
-              href="${escapeHtml(item.url)}"
-              data-link-id="${escapeHtml(item.id)}"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="group block rounded-2xl p-4 bg-white dark:bg-plum-800/90 border border-stone-200/90 dark:border-plum-700 hover:border-brand-500 dark:hover:border-brand-500 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 active:scale-[0.99]"
-            >
-              <div class="flex items-start justify-between gap-3">
-                <div class="flex items-start gap-3.5">
-                  <div class="w-11 h-11 rounded-xl bg-brand-50 dark:bg-brand-900/40 border border-brand-200/60 dark:border-brand-700/50 text-brand-600 dark:text-brand-300 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-brand-600 group-hover:text-white transition-colors">
-                    <i class="ph-fill ${escapeHtml(iconClass)} text-xl"></i>
-                  </div>
-                  <div>
-                    <div class="flex flex-wrap items-center gap-1.5 mb-1">
-                      ${
-                        item.badge
-                          ? `<span class="inline-flex items-center px-2 py-0.5 rounded-md bg-brand-50 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300 text-[10px] font-bold border border-brand-200/60 dark:border-brand-800">${escapeHtml(item.badge)}</span>`
-                          : ""
-                      }
-                      ${
-                        item.priceTag
-                          ? `<span class="inline-flex items-center px-2 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-[10px] font-extrabold border border-emerald-200 dark:border-emerald-800/60">${escapeHtml(item.priceTag)}</span>`
-                          : ""
-                      }
-                      <span class="text-[10px] font-medium text-stone-400 dark:text-stone-400">
-                        • ${escapeHtml(item.category)}
-                      </span>
-                    </div>
-                    <h3 class="font-bold text-sm sm:text-[15px] leading-snug text-stone-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-300 transition-colors">
-                      ${styledTitle}
+            <article class="rounded-card bg-white dark:bg-espresso-card border border-cream-border dark:border-espresso-border overflow-hidden flex flex-col justify-between transition-colors hover:border-wood dark:hover:border-wood-light">
+              <button
+                type="button"
+                data-curation-id="${escapeHtml(item.id)}"
+                class="open-curation-btn text-left flex flex-col h-full w-full focus:outline-none"
+              >
+                <!-- Superfície limpa sem texto sobreposto à foto -->
+                <div class="w-full aspect-[4/5] bg-white dark:bg-espresso-elevated overflow-hidden border-b border-cream-border/70 dark:border-espresso-border">
+                  <img
+                    src="${escapeHtml(item.image)}"
+                    alt="${escapeHtml(item.title)}"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+
+                <div class="p-3 flex-1 flex flex-col justify-between gap-2.5">
+                  <div class="space-y-1.5">
+                    <span class="ashome-band inline-block text-[9px] px-1.5 py-0.5 rounded-[3px] leading-tight">
+                      ${escapeHtml(editorialLabel)}
+                    </span>
+                    <h3 class="text-[13px] font-semibold leading-snug text-espresso dark:text-cream-light">
+                      ${escapeHtml(item.title)}
                     </h3>
-                    <p class="text-xs text-stone-500 dark:text-stone-300 mt-1 leading-relaxed">
-                      ${escapeHtml(item.subtitle)}
-                    </p>
                   </div>
+
+                  <span class="inline-flex items-center gap-1 text-[11.5px] font-medium text-wine dark:text-butter pt-0.5">
+                    <span>Ver detalhes da curadoria</span>
+                    <span aria-hidden="true">→</span>
+                  </span>
                 </div>
-                <div class="w-8 h-8 rounded-full bg-stone-100 dark:bg-plum-700 text-stone-500 dark:text-stone-300 group-hover:bg-brand-600 group-hover:text-white flex items-center justify-center shrink-0 transition-colors mt-1">
-                  <i class="ph-bold ph-caret-right text-base"></i>
-                </div>
-              </div>
-            </a>
+              </button>
+            </article>
           `;
         })
         .join("");
+
+      grid.querySelectorAll(".open-curation-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const itemId = btn.getAttribute("data-curation-id");
+          const item = SITE_CONFIG.curations.find(c => c.id === itemId);
+          if (!item) return;
+
+          const editorial = getEditorialById(item.editorialId);
+          trackPixel("trackCustom", "click_collection_card", {
+            content_ids: [item.id],
+            content_name: item.title,
+            content_category: editorial ? editorial.title : "Curadoria"
+          });
+          trackPixel("track", "ViewContent", {
+            content_ids: [item.id],
+            content_name: item.title,
+            content_category: editorial ? editorial.title : "Curadoria"
+          });
+
+          openCuradoriaDrawer(item.id);
+        });
+      });
     }
 
-    // 5. Renderizar Rodapé Social (Instagram)
+    // Seção 5: Rodapé Social Discreto
     function renderSocialFooter() {
       const { handle, instagramUrl, storefrontUrl } = SITE_CONFIG.profile;
       const container = document.getElementById("socialFooterContainer");
 
       container.innerHTML = `
-        <div class="grid grid-cols-2 gap-2.5">
+        <div class="flex flex-wrap items-center justify-center gap-2.5">
           <a
             href="${escapeHtml(instagramUrl)}"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-white dark:bg-plum-800 border border-stone-200 dark:border-plum-700 hover:border-brand-500 text-stone-800 dark:text-stone-100 text-xs font-bold shadow-sm transition-all active:scale-95"
+            class="inline-flex items-center gap-2 py-2.5 px-4 rounded-btn bg-cream-light dark:bg-espresso-card border border-cream-border dark:border-espresso-border hover:border-wood dark:hover:border-wood-light text-espresso dark:text-cream-light text-xs font-medium transition-colors"
           >
-            <i class="ph-fill ph-instagram-logo text-lg text-brand-600"></i>
-            <span>Seguir no Instagram</span>
+            <i class="ph ph-instagram-logo text-base text-wood dark:text-wood-light"></i>
+            <span>${escapeHtml(handle)}</span>
           </a>
 
           <a
             href="${escapeHtml(storefrontUrl)}"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-white dark:bg-plum-800 border border-stone-200 dark:border-plum-700 hover:border-brand-500 text-stone-800 dark:text-stone-100 text-xs font-bold shadow-sm transition-all active:scale-95"
+            class="inline-flex items-center gap-2 py-2.5 px-4 rounded-btn bg-cream-light dark:bg-espresso-card border border-cream-border dark:border-espresso-border hover:border-wood dark:hover:border-wood-light text-espresso dark:text-cream-light text-xs font-medium transition-colors"
           >
-            <i class="ph-fill ph-storefront text-lg text-amber-500"></i>
+            <i class="ph ph-storefront text-base text-wood dark:text-wood-light"></i>
             <span>Vitrine Shopee</span>
           </a>
         </div>
       `;
     }
 
-    // Utilitário de Toast Notification
+    // ========================================================================
+    // GAVETA DISCRETA IN-PAGE (DETALHES + TAGS + BUSCA COM PRELOAD EM IDLE)
+    // ========================================================================
+    function getDrawerTagOptions() {
+      const tags = [{ id: "ALL", label: "Todas" }];
+      SITE_CONFIG.videoKeywords.forEach(kw => {
+        tags.push({ id: `KW:${kw}`, label: kw });
+      });
+      SITE_CONFIG.editorials.forEach(ed => {
+        if (SITE_CONFIG.curations.some(c => c.editorialId === ed.id)) {
+          tags.push({ id: `ED:${ed.id}`, label: ed.title });
+        }
+      });
+      return tags;
+    }
+
+    function getDrawerFilteredCurations() {
+      const q = normalizeText(drawerSearchQuery.trim());
+
+      return SITE_CONFIG.curations.filter(item => {
+        const editorial = getEditorialById(item.editorialId);
+
+        let matchesTag = true;
+        if (drawerActiveTag.startsWith("KW:")) {
+          const kw = normalizeText(drawerActiveTag.slice(3));
+          matchesTag = (item.keywords || []).some(k => normalizeText(k) === kw);
+        } else if (drawerActiveTag.startsWith("ED:")) {
+          matchesTag = item.editorialId === drawerActiveTag.slice(3);
+        }
+
+        const searchable = normalizeText([
+          item.title,
+          item.room,
+          item.materials,
+          item.note,
+          item.episode,
+          editorial?.title || "",
+          ...(item.keywords || [])
+        ].join(" "));
+
+        const matchesQuery = !q || searchable.includes(q);
+        return matchesTag && matchesQuery;
+      });
+    }
+
+    function renderDrawerTags() {
+      const container = document.getElementById("drawerTagFilters");
+      if (!container) return;
+
+      const tags = getDrawerTagOptions();
+      container.innerHTML = tags
+        .map(tag => {
+          const isActive = drawerActiveTag === tag.id;
+          const cls = isActive
+            ? "bg-butter text-wine border-butter font-serif font-bold uppercase tracking-[0.04em]"
+            : "bg-cream-light dark:bg-espresso-card text-espresso-ink dark:text-cream border-cream-border dark:border-espresso-border hover:border-wood font-medium";
+
+          return `
+            <button
+              type="button"
+              data-drawer-tag="${escapeHtml(tag.id)}"
+              class="drawer-tag-btn shrink-0 px-2.5 py-1 rounded-[6px] border text-[10.5px] transition-colors ${cls}"
+            >
+              ${escapeHtml(tag.label)}
+            </button>
+          `;
+        })
+        .join("");
+
+      container.querySelectorAll(".drawer-tag-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          drawerActiveTag = btn.getAttribute("data-drawer-tag") || "ALL";
+          renderDrawerTags();
+          renderDrawerContent();
+        });
+      });
+    }
+
+    function renderDrawerContent() {
+      const stripEl = document.getElementById("drawerPieceStrip");
+      const bodyEl = document.getElementById("drawerBody");
+      if (!stripEl || !bodyEl) return;
+
+      const matches = getDrawerFilteredCurations();
+
+      if (matches.length === 0) {
+        stripEl.innerHTML = "";
+        bodyEl.innerHTML = `
+          <div class="text-center py-8 px-4 space-y-3">
+            <p class="font-serif font-bold text-sm text-espresso dark:text-cream-light">
+              Nenhuma peça encontrada com esse filtro
+            </p>
+            <p class="text-xs text-espresso-muted dark:text-espresso-darkMuted">
+              Limpe a busca ou escolha outra tag para continuar explorando.
+            </p>
+            <button
+              id="drawerResetBtn"
+              type="button"
+              class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-btn bg-wine hover:bg-wine-hover text-cream-light text-xs font-semibold transition-colors"
+            >
+              Ver todas as peças
+            </button>
+          </div>
+        `;
+        document.getElementById("drawerResetBtn")?.addEventListener("click", () => {
+          drawerSearchQuery = "";
+          drawerActiveTag = "ALL";
+          const input = document.getElementById("drawerSearchInput");
+          if (input) input.value = "";
+          document.getElementById("clearDrawerSearchBtn")?.classList.add("hidden");
+          renderDrawerTags();
+          renderDrawerContent();
+        });
+        return;
+      }
+
+      if (!matches.some(m => m.id === drawerSelectedId)) {
+        drawerSelectedId = matches[0].id;
+      }
+
+      const activeItem = matches.find(m => m.id === drawerSelectedId) || matches[0];
+      const editorial = getEditorialById(activeItem.editorialId);
+
+      // Faixa horizontal compacta para navegar entre peças filtradas
+      stripEl.innerHTML = matches
+        .map(item => {
+          const isSelected = item.id === activeItem.id;
+          const btnCls = isSelected
+            ? "border-wine dark:border-butter bg-white dark:bg-espresso-card text-espresso dark:text-cream-light"
+            : "border-cream-border dark:border-espresso-border bg-cream-light/80 dark:bg-espresso-card/70 text-espresso-muted dark:text-espresso-darkMuted hover:border-wood";
+
+          return `
+            <button
+              type="button"
+              data-drawer-piece="${escapeHtml(item.id)}"
+              class="drawer-piece-pill shrink-0 flex items-center gap-2 pr-2.5 pl-1 py-1 rounded-btn border text-left transition-colors ${btnCls}"
+            >
+              <img
+                src="${escapeHtml(item.image)}"
+                alt=""
+                loading="lazy"
+                class="w-7 h-7 rounded-[6px] object-cover shrink-0 bg-white"
+              />
+              <span class="text-[11px] font-medium max-w-[125px] truncate">
+                ${escapeHtml(item.title)}
+              </span>
+            </button>
+          `;
+        })
+        .join("");
+
+      stripEl.querySelectorAll(".drawer-piece-pill").forEach(btn => {
+        btn.addEventListener("click", () => {
+          drawerSelectedId = btn.getAttribute("data-drawer-piece");
+          renderDrawerContent();
+        });
+      });
+
+      const directLinkHtml = activeItem.url
+        ? `
+          <a
+            href="${escapeHtml(activeItem.url)}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-btn bg-cream dark:bg-espresso-elevated border border-cream-border dark:border-espresso-border hover:border-wood text-espresso dark:text-cream-light text-xs font-semibold transition-colors"
+          >
+            <span>Abrir link da peça</span>
+            <i class="ph ph-arrow-up-right text-sm"></i>
+          </a>
+        `
+        : `
+          <a
+            href="${escapeHtml(SITE_CONFIG.storefrontLink.url)}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-4 rounded-btn bg-cream dark:bg-espresso-elevated border border-cream-border dark:border-espresso-border hover:border-wood text-espresso-ink dark:text-cream text-xs font-medium transition-colors"
+          >
+            <span>Explorar vitrine completa na Shopee</span>
+            <i class="ph ph-arrow-up-right text-sm"></i>
+          </a>
+        `;
+
+      bodyEl.innerHTML = `
+        <div class="rounded-card overflow-hidden bg-white dark:bg-espresso-elevated border border-cream-border dark:border-espresso-border">
+          <img
+            src="${escapeHtml(activeItem.image)}"
+            alt="${escapeHtml(activeItem.title)}"
+            class="w-full max-h-[300px] object-contain mx-auto bg-white dark:bg-espresso-elevated"
+          />
+        </div>
+
+        <div class="space-y-2.5">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="ashome-band text-[10px] px-2 py-0.5 rounded-[3px]">
+              ${escapeHtml(editorial ? editorial.title : "Curadoria")}
+            </span>
+            <span class="text-[11px] text-wood dark:text-wood-light font-medium">
+              ${escapeHtml(activeItem.episode)}
+            </span>
+          </div>
+
+          <h3 id="drawerPieceTitle" class="font-serif font-bold text-xl leading-snug text-espresso dark:text-cream-light">
+            ${escapeHtml(activeItem.title)}
+          </h3>
+
+          <p class="text-[13px] leading-relaxed text-espresso-ink dark:text-espresso-darkMuted">
+            ${escapeHtml(activeItem.note)}
+          </p>
+
+          <div class="grid grid-cols-2 gap-2 pt-1">
+            <div class="rounded-btn bg-cream dark:bg-espresso border border-cream-border dark:border-espresso-border px-3 py-2">
+              <p class="text-[10px] uppercase tracking-[0.08em] text-wood dark:text-wood-light font-semibold">Ambiente</p>
+              <p class="text-xs text-espresso dark:text-cream-light mt-0.5">${escapeHtml(activeItem.room)}</p>
+            </div>
+            <div class="rounded-btn bg-cream dark:bg-espresso border border-cream-border dark:border-espresso-border px-3 py-2">
+              <p class="text-[10px] uppercase tracking-[0.08em] text-wood dark:text-wood-light font-semibold">Destaque</p>
+              <p class="text-xs text-espresso dark:text-cream-light mt-0.5 line-clamp-2">${escapeHtml(activeItem.materials)}</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-1.5 pt-1">
+            ${(activeItem.keywords || [])
+              .map(
+                kw => `
+                <button
+                  type="button"
+                  data-inline-kw="${escapeHtml(kw)}"
+                  class="inline-kw-btn px-2 py-0.5 rounded-[4px] bg-cream dark:bg-espresso border border-cream-border dark:border-espresso-border text-[10.5px] font-medium text-espresso-muted dark:text-espresso-darkMuted hover:border-wood transition-colors"
+                >
+                  #${escapeHtml(kw)}
+                </button>
+              `
+              )
+              .join("")}
+          </div>
+
+          ${
+            activeItem.aiStaged
+              ? `<p class="text-[11px] text-espresso-muted dark:text-espresso-darkMuted flex items-center gap-1.5 pt-0.5">
+                  <i class="ph ph-info text-wood dark:text-wood-light shrink-0"></i>
+                  <span>Ambientação ilustrativa criada com auxílio de IA.</span>
+                </p>`
+              : ""
+          }
+        </div>
+
+        <div class="space-y-2 pt-1">
+          <a
+            id="drawerGroupCtaBtn"
+            href="${escapeHtml(SITE_CONFIG.curadoriaGroup.url)}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-btn bg-wine hover:bg-wine-hover text-cream-light text-[13px] font-semibold transition-colors"
+          >
+            <i class="ph-fill ph-whatsapp-logo text-base"></i>
+            <span data-cta-label>Ver link e condições no Grupo de Curadorias</span>
+          </a>
+          ${directLinkHtml}
+        </div>
+      `;
+
+      bodyEl.querySelectorAll(".inline-kw-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const kw = btn.getAttribute("data-inline-kw");
+          if (!kw) return;
+          drawerActiveTag = `KW:${kw}`;
+          renderDrawerTags();
+          renderDrawerContent();
+        });
+      });
+
+      document.getElementById("drawerGroupCtaBtn")?.addEventListener("click", e => {
+        handleGroupCtaNavigation(e, e.currentTarget, "curadoria_drawer");
+      });
+    }
+
+    function preloadDrawerInIdle() {
+      if (drawerPreloaded) return;
+      drawerPreloaded = true;
+
+      renderDrawerTags();
+      renderDrawerContent();
+
+      // Pré-aquece as imagens em segundo plano sem bloquear o carregamento inicial
+      SITE_CONFIG.curations.forEach(item => {
+        const img = new Image();
+        img.decoding = "async";
+        img.src = item.image;
+      });
+    }
+
+    function openCuradoriaDrawer(pieceId = null, initialQuery = "", initialTag = "ALL") {
+      const backdrop = document.getElementById("curadoriaDrawer");
+      const panel = document.getElementById("curadoriaDrawerPanel");
+      const searchEl = document.getElementById("drawerSearchInput");
+      const clearEl = document.getElementById("clearDrawerSearchBtn");
+      if (!backdrop || !panel) return;
+
+      drawerSearchQuery = initialQuery || "";
+      drawerActiveTag = initialTag || "ALL";
+      if (pieceId) drawerSelectedId = pieceId;
+
+      if (searchEl) searchEl.value = drawerSearchQuery;
+      if (clearEl) clearEl.classList.toggle("hidden", !drawerSearchQuery);
+
+      renderDrawerTags();
+      renderDrawerContent();
+
+      backdrop.classList.remove("hidden");
+      backdrop.classList.add("flex");
+      document.body.style.overflow = "hidden";
+
+      requestAnimationFrame(() => {
+        backdrop.classList.remove("opacity-0");
+        panel.classList.remove("translate-y-6", "opacity-0");
+      });
+    }
+
+    function closeCuradoriaDrawer() {
+      const backdrop = document.getElementById("curadoriaDrawer");
+      const panel = document.getElementById("curadoriaDrawerPanel");
+      if (!backdrop || !panel) return;
+
+      backdrop.classList.add("opacity-0");
+      panel.classList.add("translate-y-6", "opacity-0");
+      document.body.style.overflow = "";
+
+      setTimeout(() => {
+        backdrop.classList.add("hidden");
+        backdrop.classList.remove("flex");
+      }, 220);
+    }
+
+    // ========================================================================
+    // TOAST & COMPARTILHAMENTO
+    // ========================================================================
     let toastTimeout;
     function showToast(message) {
       const toast = document.getElementById("toastNotification");
@@ -889,27 +1491,21 @@
       toastTimeout = setTimeout(() => {
         toast.classList.add("opacity-0", "translate-y-3");
         toast.classList.remove("opacity-100", "translate-y-0");
-      }, 2800);
+      }, 2600);
     }
 
-    // Utilitário seguro para obter a URL compartilhável (funciona em GitHub Pages, local file:// ou preview iframe)
     function getShareableUrl() {
       try {
         const href = window.location.href || "";
         if (href.startsWith("http") && !href.includes("about:srcdoc") && !href.includes("blob:")) {
           return href;
         }
-      } catch (e) {
-        // Ignora erro de acesso em iframe
-      }
-      return SITE_CONFIG.profile.storefrontUrl || "https://collshp.com/ashodinhos_promos?view=storefront";
+      } catch (e) {}
+      return "https://ashodinhos.github.io/linktree/";
     }
 
-    // Utilitário à prova de falhas para copiar texto para a área de transferência
     async function copyTextToClipboard(text, successMsg) {
       let copied = false;
-
-      // 1. Tenta a API moderna de Clipboard apenas se estiver em contexto seguro e fora de bloqueio
       try {
         if (navigator.clipboard && window.isSecureContext) {
           await navigator.clipboard.writeText(text);
@@ -919,7 +1515,6 @@
         copied = false;
       }
 
-      // 2. Fallback clássico com <textarea> oculto (funciona em iframes, previews e file://)
       if (!copied) {
         try {
           const textarea = document.createElement("textarea");
@@ -938,22 +1533,18 @@
         }
       }
 
-      if (copied && successMsg) {
-        showToast(successMsg);
-      }
+      if (copied && successMsg) showToast(successMsg);
       return copied;
     }
 
-    // Abre o Modal de Compartilhamento customizado e preenche os links sociais
     function openShareModal(shareUrl) {
       const shareModal = document.getElementById("shareModal");
       const shareUrlInput = document.getElementById("shareUrlInput");
       const whatsappBtn = document.getElementById("shareWhatsAppBtn");
       const telegramBtn = document.getElementById("shareTelegramBtn");
-
       if (!shareModal) return;
 
-      const shareText = `${SITE_CONFIG.profile.name} - Confira os melhores achadinhos e promoções da Shopee! 🛍️✨`;
+      const shareText = `${SITE_CONFIG.profile.displayName} — ${SITE_CONFIG.profile.tagline}`;
       if (shareUrlInput) shareUrlInput.value = shareUrl;
       if (whatsappBtn) {
         whatsappBtn.href = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + " " + shareUrl)}`;
@@ -966,7 +1557,6 @@
       shareModal.classList.add("flex");
     }
 
-    // Função de Compartilhamento Principal (100% à prova de travamentos)
     async function sharePage(event) {
       if (event && typeof event.preventDefault === "function") {
         event.preventDefault();
@@ -975,12 +1565,11 @@
 
       const shareUrl = getShareableUrl();
       const shareData = {
-        title: SITE_CONFIG.profile.name || "Ashô | Achadinhos da Shirley",
-        text: "Confira os melhores achadinhos e promoções da Shirley na Shopee! 🛍️✨",
+        title: SITE_CONFIG.profile.displayName,
+        text: SITE_CONFIG.profile.tagline,
         url: shareUrl
       };
 
-      // Verifica se está rodando fora de um iframe e em dispositivo móvel com suporte a Web Share
       let isTopWindow = false;
       try {
         isTopWindow = window.self === window.top;
@@ -997,147 +1586,161 @@
             return;
           }
         } catch (err) {
-          // Se o usuário apenas fechou a gaveta nativa do celular, não faz nada
           if (err && err.name === "AbortError") return;
-          // Para qualquer outro erro (NotAllowedError, SecurityError, etc.), continua para o modal + cópia
         }
       }
 
-      // Fallback universal (Preview iframe, Desktop ou quando navigator.share é bloqueado):
-      // Copia automaticamente o link e exibe o Modal de Compartilhamento
-      await copyTextToClipboard(shareUrl, "Link copiado para a área de transferência! ✨");
+      await copyTextToClipboard(shareUrl, "Link da AsHome Curadoria copiado.");
       openShareModal(shareUrl);
     }
 
-    // Configurar Eventos de Busca, Tema, Compartilhamento e Modais
+    // ========================================================================
+    // INTERAÇÕES, TEMA E EVENTOS
+    // ========================================================================
+    function syncThemeUi() {
+      const isDark = document.documentElement.classList.contains("dark");
+      const themeIcon = document.getElementById("themeIcon");
+      const themeMeta = document.getElementById("themeColorMeta");
+
+      if (themeIcon) {
+        themeIcon.className = isDark ? "ph-fill ph-sun text-base" : "ph ph-moon text-base";
+      }
+      if (themeMeta) {
+        themeMeta.setAttribute("content", isDark ? "#2A1210" : "#F3EBDD");
+      }
+    }
+
     function setupInteractions() {
-      // Busca em tempo real
       const searchInput = document.getElementById("searchInput");
       const clearSearchBtn = document.getElementById("clearSearchBtn");
       const resetFiltersBtn = document.getElementById("resetFiltersBtn");
+      const resetEditorialTopBtn = document.getElementById("resetEditorialTopBtn");
+      const openDrawerQuickBtn = document.getElementById("openDrawerQuickBtn");
 
-      searchInput.addEventListener("input", e => {
+      searchInput?.addEventListener("input", e => {
         searchQuery = e.target.value;
-        clearSearchBtn.classList.toggle("hidden", !searchQuery);
-        renderCategoryPills();
-        renderLinks();
+        clearSearchBtn?.classList.toggle("hidden", !searchQuery);
+        renderMoodboard();
       });
 
-      clearSearchBtn.addEventListener("click", () => {
-        searchInput.value = "";
+      clearSearchBtn?.addEventListener("click", () => {
+        if (searchInput) searchInput.value = "";
         searchQuery = "";
         clearSearchBtn.classList.add("hidden");
-        renderCategoryPills();
-        renderLinks();
-        searchInput.focus();
+        renderMoodboard();
+        searchInput?.focus();
       });
 
-      resetFiltersBtn.addEventListener("click", () => {
-        searchInput.value = "";
+      function resetAllFilters() {
+        if (searchInput) searchInput.value = "";
         searchQuery = "";
-        currentCategory = "Todos";
-        clearSearchBtn.classList.add("hidden");
-        renderCategoryPills();
-        renderLinks();
-      });
-
-      // Alternar Tema Claro / Escuro com proteção para iframe
-      const themeToggleBtn = document.getElementById("themeToggleBtn");
-      const themeIcon = document.getElementById("themeIcon");
-      const htmlEl = document.documentElement;
-
-      const savedTheme = safeGetStorage("asho_theme");
-      if (savedTheme === "dark") {
-        htmlEl.classList.add("dark");
-        themeIcon.className = "ph-fill ph-sun text-lg";
+        activeKeyword = "";
+        activeEditorial = "all";
+        clearSearchBtn?.classList.add("hidden");
+        renderKeywordChips();
+        renderEditorials();
+        renderMoodboard();
       }
 
-      themeToggleBtn.addEventListener("click", () => {
-        const isDark = htmlEl.classList.toggle("dark");
-        safeSetStorage("asho_theme", isDark ? "dark" : "light");
-        themeIcon.className = isDark ? "ph-fill ph-sun text-lg" : "ph ph-moon text-lg";
+      resetFiltersBtn?.addEventListener("click", resetAllFilters);
+      resetEditorialTopBtn?.addEventListener("click", () => {
+        activeEditorial = "all";
+        renderEditorials();
+        renderMoodboard();
       });
 
-      // Botão Compartilhar e Modal de Compartilhamento
+      openDrawerQuickBtn?.addEventListener("click", () => {
+        const tagFromPage = activeKeyword
+          ? `KW:${activeKeyword}`
+          : (activeEditorial !== "all" ? `ED:${activeEditorial}` : "ALL");
+        openCuradoriaDrawer(null, searchQuery, tagFromPage);
+      });
+
+      // Eventos internos da Gaveta
+      const closeDrawerBtn = document.getElementById("closeDrawerBtn");
+      const curadoriaDrawer = document.getElementById("curadoriaDrawer");
+      const drawerSearchInput = document.getElementById("drawerSearchInput");
+      const clearDrawerSearchBtn = document.getElementById("clearDrawerSearchBtn");
+
+      closeDrawerBtn?.addEventListener("click", closeCuradoriaDrawer);
+      curadoriaDrawer?.addEventListener("click", e => {
+        if (e.target === curadoriaDrawer) closeCuradoriaDrawer();
+      });
+
+      drawerSearchInput?.addEventListener("input", e => {
+        drawerSearchQuery = e.target.value;
+        clearDrawerSearchBtn?.classList.toggle("hidden", !drawerSearchQuery);
+        renderDrawerContent();
+      });
+
+      clearDrawerSearchBtn?.addEventListener("click", () => {
+        if (drawerSearchInput) drawerSearchInput.value = "";
+        drawerSearchQuery = "";
+        clearDrawerSearchBtn.classList.add("hidden");
+        renderDrawerContent();
+        drawerSearchInput?.focus();
+      });
+
+      // Alternar Tema Claro (Creme #F3EBDD) / Escuro (Marrom Escuro #2A1210)
+      syncThemeUi();
+      document.getElementById("themeToggleBtn")?.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.toggle("dark");
+        safeSetStorage("ashome_theme", isDark ? "dark" : "light");
+        syncThemeUi();
+      });
+
+      // Compartilhamento e Modal
       const shareBtn = document.getElementById("shareBtn");
       const shareModal = document.getElementById("shareModal");
       const closeShareModalBtn = document.getElementById("closeShareModalBtn");
       const copyShareUrlBtn = document.getElementById("copyShareUrlBtn");
       const shareUrlInput = document.getElementById("shareUrlInput");
 
-      shareBtn.addEventListener("click", sharePage);
+      shareBtn?.addEventListener("click", sharePage);
 
       function closeShareModal() {
-        shareModal.classList.add("hidden");
-        shareModal.classList.remove("flex");
+        shareModal?.classList.add("hidden");
+        shareModal?.classList.remove("flex");
       }
 
-      closeShareModalBtn.addEventListener("click", closeShareModal);
-      shareModal.addEventListener("click", e => {
+      closeShareModalBtn?.addEventListener("click", closeShareModal);
+      shareModal?.addEventListener("click", e => {
         if (e.target === shareModal) closeShareModal();
       });
 
-      copyShareUrlBtn.addEventListener("click", async () => {
+      copyShareUrlBtn?.addEventListener("click", async () => {
         const urlToCopy = shareUrlInput ? shareUrlInput.value : getShareableUrl();
-        await copyTextToClipboard(urlToCopy, "Link copiado! Pronto para colar ✨");
+        await copyTextToClipboard(urlToCopy, "Link copiado.");
       });
 
-    }
-
-    // ========================================================================
-    // RASTREAMENTO CENTRALIZADO: META PIXEL + GOOGLE TAG MANAGER (dataLayer)
-    // ========================================================================
-    function trackPixel(type, eventName, params = {}, sendToGa = true) {
-      // 1. Envia para o Meta Pixel (mantém arrays nativos como content_ids)
-      if (typeof fbq === "function") {
-        fbq(type, eventName, params);
-      }
-
-      // Permite enviar eventos exclusivos ao Meta Pixel sem duplicar no GA4
-      if (!sendToGa) return;
-
-      // 2. Envia para o Google Tag Manager (dataLayer) - Padrão Gold Standard
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "pixel_track",
-        ga_event_name: eventName,
-        event_type: type,
-        content_name: params.content_name ?? null,
-        content_category: params.content_category ?? null,
-        // GA4 exige string em parâmetros customizados (converte ['id'] -> 'id')
-        content_ids: Array.isArray(params.content_ids)
-          ? params.content_ids.join(",")
-          : (params.content_ids ?? null),
-        destination_url: params.destination_url ?? null,
-        page_mode: params.page_mode ?? null,
-        _clear: true // Instrução nativa do GTM v2 para limpar chaves antigas da memória
+      // Fechar modais com ESC
+      document.addEventListener("keydown", e => {
+        if (e.key !== "Escape") return;
+        if (!curadoriaDrawer?.classList.contains("hidden")) closeCuradoriaDrawer();
+        if (!shareModal?.classList.contains("hidden")) closeShareModal();
       });
     }
 
     function setupPixelTracking() {
-      // 1. Botão de Compartilhar (Topo) + Botões do Modal
       document.getElementById("shareBtn")?.addEventListener("click", () => {
         trackPixel("trackCustom", "Share");
       });
-
       document.getElementById("shareWhatsAppBtn")?.addEventListener("click", () => {
         trackPixel("trackCustom", "share_whatsapp");
       });
-
       document.getElementById("shareTelegramBtn")?.addEventListener("click", () => {
         trackPixel("trackCustom", "share_telegram");
       });
-
       document.getElementById("copyShareUrlBtn")?.addEventListener("click", () => {
         trackPixel("trackCustom", "share_copy_link");
       });
 
-      // 2. CTA Principal: Vitrine Completa da Shopee
+      // Vitrine Shopee discreta
       document.getElementById("primaryCtaSection")?.addEventListener("click", e => {
         if (e.target.closest("a")) {
           trackPixel("trackCustom", "click_vitrine_shopee", {
-            content_name: SITE_CONFIG.mainStorefrontCta.title,
-            destination_url: SITE_CONFIG.mainStorefrontCta.url
+            content_name: SITE_CONFIG.storefrontLink.title,
+            destination_url: SITE_CONFIG.storefrontLink.url
           });
           trackPixel("track", "Lead", {
             content_name: "Vitrine Shopee"
@@ -1145,142 +1748,132 @@
         }
       });
 
-      // 3. CTA Principal: Grupo VIP do WhatsApp (COM DELAY DE SEGURANÇA PARA O PIXEL)
+      // Grupo de Curadorias AsHome (com delay de 300ms para o Pixel)
       document.getElementById("primaryGpWPP")?.addEventListener("click", e => {
         const link = e.target.closest("a");
         if (link) {
-          e.preventDefault(); // Interrompe o redirecionamento instantâneo
-
-          const targetUrl = link.href;
-          const isVip = isVipLandingMode();
-          const modeLabel = isVip ? "vip_landing" : "full_linktree";
-
-          // 1. Dispara os eventos do Pixel / GTM
-          trackPixel("trackCustom", "join_whatsapp_group", {
-            content_name: SITE_CONFIG.grupoWpp.title.trim(),
-            page_mode: modeLabel
-          });
-
-          trackPixel("track", "Contact", {
-            content_name: isVip ? "Grupo VIP WhatsApp (LP Anuncio)" : "Grupo VIP WhatsApp (Linktree Bio)",
-            page_mode: modeLabel
-          });
-
-          if (isVip) {
-            trackPixel("trackCustom", "join_whatsapp_vip_ad", {
-              content_name: "Grupo VIP WhatsApp (LP Anuncio)"
-            }, false);          
-          }
-
-          // 2. Feedback visual imediato no botão para o usuário não clicar duas vezes
-
-          const titleEl = document.querySelector("#grupoWppBtn h2");
-          if (titleEl) {
-            titleEl.innerHTML = "⏳ Entrando no Grupo VIP...";
-          }
-
-          // 3. Aguarda 300ms (tempo suficiente para o fbevents.js despachar o POST para a Meta) e redireciona
-          setTimeout(() => {
-            window.location.href = targetUrl;
-          }, 300);
+          handleGroupCtaNavigation(e, link);
         }
       });
 
-      // 4. Cards de Coleções e Achadinhos (Dinâmicos)
-      document.getElementById("linksContainer")?.addEventListener("click", e => {
-        const cardLink = e.target.closest("a[data-link-id]");
-        if (!cardLink) return;
-
-        const linkId = cardLink.getAttribute("data-link-id");
-        const item = SITE_CONFIG.links.find(l => l.id === linkId);
-
-        trackPixel("trackCustom", "click_collection_card", {
-          content_ids: [linkId],
-          content_name: item ? item.title : cardLink.innerText.trim(),
-          content_category: item ? item.category : currentCategory,
-          destination_url: cardLink.href
-        });
-
-        // Track ViewContent
-        trackPixel("track", "ViewContent", {
-          content_ids: [linkId],
-          content_name: item ? item.title : cardLink.innerText.trim(),
-          content_category: item ? item.category : currentCategory
-        });
-      });
-
-      // 5. Botões do Rodapé (Instagram e Vitrine Shopee)
+      // Rodapé social
       document.getElementById("socialFooterContainer")?.addEventListener("click", e => {
         const link = e.target.closest("a");
         if (!link) return;
-
         const isInstagram = link.href.includes("instagram.com");
         trackPixel("trackCustom", isInstagram ? "click_instagram" : "click_vitrine_footer", {
           destination_url: link.href
         });
       });
 
-      // 6. Links do Instagram no Cabeçalho (Avatar e @handle)
-      document.getElementById("profileHeader")?.addEventListener("click", e => {
+      // Header Instagram (avatar e handle)
+      const trackHeaderIg = e => {
         const link = e.target.closest("a");
-        if (link) {
+        if (link && link.getAttribute("href")) {
           trackPixel("trackCustom", "click_instagram_header", {
             destination_url: link.href
           });
         }
-      });
+      };
+      document.getElementById("profileHeader")?.addEventListener("click", trackHeaderIg);
+      document.getElementById("topHandleLink")?.addEventListener("click", trackHeaderIg);
     }
 
+    // ========================================================================
+    // MODO VIP / LANDING PAGE DE ANÚNCIOS (?vip=1 ou #vip)
+    // ========================================================================
+    function renderVipPreviewStrip() {
+      const container = document.getElementById("vipPreviewStrip");
+      if (!container) return;
 
-    // Verifica se a URL possui ?vip=1 ou #vip para ativar a Landing Page exclusiva de Anúncios
-    function isVipLandingMode() {
-      const params = new URLSearchParams(window.location.search);
-      return params.has("vip") || window.location.hash === "#vip";
+      const previewItems = SITE_CONFIG.curations.slice(0, 4);
+      container.innerHTML = `
+        <div class="rounded-card bg-cream-light dark:bg-espresso-card border border-cream-border dark:border-espresso-border p-3.5 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.1em] text-wood dark:text-wood-light">
+              Curadoria recente
+            </span>
+            <span class="text-[11px] text-espresso-muted dark:text-espresso-darkMuted">
+              Episódio 1 • Móvel Colorido
+            </span>
+          </div>
+          <div class="grid grid-cols-4 gap-2">
+            ${previewItems
+              .map(
+                item => `
+                <div class="aspect-[4/5] rounded-[8px] overflow-hidden bg-white dark:bg-espresso-elevated border border-cream-border/80 dark:border-espresso-border">
+                  <img
+                    src="${escapeHtml(item.image)}"
+                    alt="${escapeHtml(item.title)}"
+                    loading="lazy"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+              `
+              )
+              .join("")}
+          </div>
+        </div>
+      `;
+      container.classList.remove("hidden");
     }
 
     function applyVipMode() {
-      // 1. Oculta distrações (Vitrine Shopee, Busca, Categorias, Coleções, Compartilhar e Rodapé Social)
       const idsToHide = [
         "primaryCtaSection",
-        "filterSection",
-        "collectionsSection",
+        "videoKeywordSection",
+        "editorialsSection",
+        "moodboardSection",
         "socialFooterContainer",
         "shareBtn"
       ];
       idsToHide.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.classList.add("hidden");
+        document.getElementById(id)?.classList.add("hidden");
       });
 
-      // 2. Otimiza o texto do botão e da bio para público 65+ (instrução direta e legível)
-      SITE_CONFIG.grupoWpp.badge = "PASSO FINAL • GRATUITO";
-      SITE_CONFIG.grupoWpp.title = "ENTRAR NO GRUPO DO WHATSAPP";
-      SITE_CONFIG.grupoWpp.subtitle = "👆 Confirme sua participação aqui";
+      // Mantém a barra superior limpa sem links de saída
+      const topHandle = document.getElementById("topHandleLink");
+      if (topHandle) {
+        topHandle.removeAttribute("href");
+        topHandle.style.pointerEvents = "none";
+      }
 
-      // 3. Re-renderiza o cabeçalho e o botão do WhatsApp com a seta animada ativada (true)
       renderProfileHeader();
       renderPrimaryGpWPP(true);
+      renderVipPreviewStrip();
 
-      // 4. Remove os links do Instagram no cabeçalho para o lead não sair da página por engano
       document.querySelectorAll("#profileHeader a").forEach(a => {
         a.removeAttribute("href");
         a.style.pointerEvents = "none";
       });
     }
 
-    // Inicialização quando a página carrega
+    // ========================================================================
+    // INICIALIZAÇÃO
+    // ========================================================================
     window.addEventListener("DOMContentLoaded", () => {
       renderProfileHeader();
-      renderPrimaryGpWPP();
-      renderPrimaryCta();
-      renderCategoryPills();
-      renderLinks();
+      renderPrimaryGpWPP(false);
+      renderStorefrontLink();
+      renderKeywordChips();
+      renderEditorials();
+      renderMoodboard();
       renderSocialFooter();
       setupInteractions();
       setupPixelTracking();
 
       if (isVipLandingMode()) {
         applyVipMode();
+      }
+    });
+
+    // Preload silencioso da gaveta e imagens após o carregamento principal (não segura FCP nem Pixel)
+    window.addEventListener("load", () => {
+      if (isVipLandingMode()) return;
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(preloadDrawerInIdle, { timeout: 1800 });
+      } else {
+        setTimeout(preloadDrawerInIdle, 900);
       }
     });
   </script>
