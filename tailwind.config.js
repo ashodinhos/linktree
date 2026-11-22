@@ -1,39 +1,50 @@
 module.exports = {
   content: ["./index.html"],
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-        serif: ['"Playfair Display"', 'serif'],
+        sans: ['"Inter"', "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        serif: ['"Playfair Display"', "Georgia", "serif"],
       },
       colors: {
-        brand: {
-          50: '#fdf2f7', 100: '#fce7f1', 200: '#fad0e4', 300: '#f7a9cd',
-          400: '#f172ab', 500: '#e8468c', 600: '#E11D74', 700: '#be125d',
-          800: '#9d134d', 900: '#831543',
+        cream: {
+          DEFAULT: "#F3EBDD",
+          light: "#FAF6EE",
+          border: "#E5DDD0",
+          hover: "#EFE6D5",
         },
-        sand: { 50: '#FAF6F3', 100: '#F3ECE6', 200: '#E6D9CE' },
-        plum: { 900: '#160D14', 800: '#231420', 700: '#331D2E' }
-      },
-      keyframes: {
-        shimmer: { '0%': { transform: 'translateX(-100%)' }, '100%': { transform: 'translateX(100%)' } },
-        float: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-4px)' } },
-        pulseGlow: {
-          '0%, 100%': { boxShadow: '0 10px 25px -5px rgba(225, 29, 116, 0.45)' },
-          '50%': { boxShadow: '0 12px 30px -2px rgba(225, 29, 116, 0.7)' }
+        wine: {
+          DEFAULT: "#8E1B1B",
+          hover: "#741515",
+          soft: "#A62B2B",
         },
-        whatsappGlow: {
-          '0%, 100%': { boxShadow: '0 10px 25px -5px rgba(37, 211, 102, 0.45)' },
-          '50%': { boxShadow: '0 12px 30px -2px rgba(37, 211, 102, 0.7)' }
-        }
+        butter: {
+          DEFAULT: "#FFF3A3",
+          soft: "#FDF5C4",
+        },
+        wood: {
+          DEFAULT: "#A8693A",
+          light: "#C88A5B",
+          subtle: "#D8C4AF",
+        },
+        espresso: {
+          DEFAULT: "#2A1210",
+          card: "#351916",
+          elevated: "#41201C",
+          border: "#512C26",
+          ink: "#3D2B24",
+          muted: "#6E594F",
+          darkMuted: "#C7B5A5",
+        },
       },
-      animation: {
-        shimmer: 'shimmer 2.8s infinite',
-        float: 'float 4s ease-in-out infinite',
-        pulseGlow: 'pulseGlow 3s infinite',
-        whatsappGlow: 'whatsappGlow 3s infinite',
-      }
-    }
-  }
-}
+      borderRadius: {
+        card: "12px",
+        btn: "10px",
+      },
+      maxWidth: {
+        editorial: "480px",
+      },
+    },
+  },
+};
