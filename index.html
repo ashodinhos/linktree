@@ -165,14 +165,15 @@
               <h2 class="font-serif font-bold text-base text-espresso dark:text-cream-light leading-snug">
                 Veio pelo vídeo?
               </h2>
-              <p class="text-xs text-espresso-muted dark:text-espresso-darkMuted mt-0.5">
-                Busque pela palavra-chave comentada ou abra o catálogo filtrado.
+              <p id="videoKeywordSubtitle" class="text-xs text-espresso-muted dark:text-espresso-darkMuted mt-0.5">
+                Busque pela palavra-chave comentada no vídeo.
               </p>
             </div>
+            <!-- Oculto temporariamente enquanto SITE_CONFIG.enableCuradoriaDrawer === false -->
             <button
               id="openDrawerQuickBtn"
               type="button"
-              class="shrink-0 inline-flex items-center gap-1 px-2.5 py-1.5 rounded-btn bg-cream dark:bg-espresso-elevated border border-cream-border dark:border-espresso-border text-[11px] font-semibold text-wine dark:text-butter hover:border-wood dark:hover:border-wood-light transition-colors"
+              class="hidden shrink-0 items-center gap-1 px-2.5 py-1.5 rounded-btn bg-cream dark:bg-espresso-elevated border border-cream-border dark:border-espresso-border text-[11px] font-semibold text-wine dark:text-butter hover:border-wood dark:hover:border-wood-light transition-colors"
             >
               <i class="ph ph-sliders-horizontal text-xs"></i>
               <span>Catálogo</span>
@@ -494,6 +495,9 @@
      * 2. Atualize ou adicione um item na lista `curations` abaixo.
      */
     const SITE_CONFIG = {
+      // Ative (true) quando quiser reexibir o botão "Catálogo" e a gaveta de detalhes
+      enableCuradoriaDrawer: false,
+
       profile: {
         brandTitle: "ASHOME CURADORIA",
         displayName: "AsHome Curadoria",
@@ -1050,18 +1054,18 @@
 
       emptyState.classList.add("hidden");
 
+      const drawerEnabled = Boolean(SITE_CONFIG.enableCuradoriaDrawer);
+
       grid.innerHTML = items
         .map(item => {
           const editorial = getEditorialById(item.editorialId);
           const editorialLabel = editorial ? editorial.title : "Curadoria";
+          const directUrl = item.url || SITE_CONFIG.curadoriaGroup.url;
+          const ctaText = drawerEnabled
+            ? "Ver detalhes da curadoria"
+            : (item.url ? "Ver link da peça" : "Ver link no Grupo");
 
-          return `
-            <article class="rounded-card bg-white dark:bg-espresso-card border border-cream-border dark:border-espresso-border overflow-hidden flex flex-col justify-between transition-colors hover:border-wood dark:hover:border-wood-light">
-              <button
-                type="button"
-                data-curation-id="${escapeHtml(item.id)}"
-                class="open-curation-btn text-left flex flex-col h-full w-full focus:outline-none"
-              >
+          const cardInnerHtml = `
                 <!-- Superfície limpa sem texto sobreposto à foto -->
                 <div class="w-full aspect-[4/5] bg-white dark:bg-espresso-elevated overflow-hidden border-b border-cream-border/70 dark:border-espresso-border">
                   <img
@@ -1084,27 +1088,55 @@
                   </div>
 
                   <span class="inline-flex items-center gap-1 text-[11.5px] font-medium text-wine dark:text-butter pt-0.5">
-                    <span>Ver detalhes da curadoria</span>
+                    <span>${escapeHtml(ctaText)}</span>
                     <span aria-hidden="true">→</span>
                   </span>
                 </div>
-              </button>
+          `;
+
+          if (drawerEnabled) {
+            return `
+              <article class="rounded-card bg-white dark:bg-espresso-card border border-cream-border dark:border-espresso-border overflow-hidden flex flex-col justify-between transition-colors hover:border-wood dark:hover:border-wood-light">
+                <button
+                  type="button"
+                  data-curation-id="${escapeHtml(item.id)}"
+                  class="open-curation-btn text-left flex flex-col h-full w-full focus:outline-none"
+                >
+                  ${cardInnerHtml}
+                </button>
+              </article>
+            `;
+          }
+
+          return `
+            <article class="rounded-card bg-white dark:bg-espresso-card border border-cream-border dark:border-espresso-border overflow-hidden flex flex-col justify-between transition-colors hover:border-wood dark:hover:border-wood-light">
+              <a
+                href="${escapeHtml(directUrl)}"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-curation-id="${escapeHtml(item.id)}"
+                class="open-curation-btn text-left flex flex-col h-full w-full focus:outline-none"
+              >
+                ${cardInnerHtml}
+              </a>
             </article>
           `;
         })
         .join("");
 
       grid.querySelectorAll(".open-curation-btn").forEach(btn => {
-        btn.addEventListener("click", () => {
+        btn.addEventListener("click", e => {
           const itemId = btn.getAttribute("data-curation-id");
           const item = SITE_CONFIG.curations.find(c => c.id === itemId);
           if (!item) return;
 
           const editorial = getEditorialById(item.editorialId);
+          const targetUrl = item.url || SITE_CONFIG.curadoriaGroup.url;
           trackPixel("trackCustom", "click_collection_card", {
             content_ids: [item.id],
             content_name: item.title,
-            content_category: editorial ? editorial.title : "Curadoria"
+            content_category: editorial ? editorial.title : "Curadoria",
+            destination_url: drawerEnabled ? undefined : targetUrl
           });
           trackPixel("track", "ViewContent", {
             content_ids: [item.id],
@@ -1112,7 +1144,11 @@
             content_category: editorial ? editorial.title : "Curadoria"
           });
 
-          openCuradoriaDrawer(item.id);
+          if (drawerEnabled) {
+            openCuradoriaDrawer(item.id);
+          } else if (!item.url) {
+            handleGroupCtaNavigation(e, null, "moodboard_card");
+          }
         });
       });
     }
@@ -1424,7 +1460,7 @@
     }
 
     function preloadDrawerInIdle() {
-      if (drawerPreloaded) return;
+      if (!SITE_CONFIG.enableCuradoriaDrawer || drawerPreloaded) return;
       drawerPreloaded = true;
 
       renderDrawerTags();
@@ -1439,6 +1475,7 @@
     }
 
     function openCuradoriaDrawer(pieceId = null, initialQuery = "", initialTag = "ALL") {
+      if (!SITE_CONFIG.enableCuradoriaDrawer) return;
       const backdrop = document.getElementById("curadoriaDrawer");
       const panel = document.getElementById("curadoriaDrawerPanel");
       const searchEl = document.getElementById("drawerSearchInput");
@@ -1622,6 +1659,18 @@
       const resetFiltersBtn = document.getElementById("resetFiltersBtn");
       const resetEditorialTopBtn = document.getElementById("resetEditorialTopBtn");
       const openDrawerQuickBtn = document.getElementById("openDrawerQuickBtn");
+      const videoKeywordSubtitle = document.getElementById("videoKeywordSubtitle");
+      const drawerEnabled = Boolean(SITE_CONFIG.enableCuradoriaDrawer);
+
+      if (openDrawerQuickBtn) {
+        openDrawerQuickBtn.classList.toggle("hidden", !drawerEnabled);
+        openDrawerQuickBtn.classList.toggle("inline-flex", drawerEnabled);
+      }
+      if (videoKeywordSubtitle) {
+        videoKeywordSubtitle.textContent = drawerEnabled
+          ? "Busque pela palavra-chave comentada ou abra o catálogo filtrado."
+          : "Busque pela palavra-chave comentada no vídeo.";
+      }
 
       searchInput?.addEventListener("input", e => {
         searchQuery = e.target.value;
@@ -1875,7 +1924,7 @@
 
     // Preload silencioso da gaveta e imagens após o carregamento principal (não segura FCP nem Pixel)
     window.addEventListener("load", () => {
-      if (isVipLandingMode()) return;
+      if (!SITE_CONFIG.enableCuradoriaDrawer || isVipLandingMode()) return;
       if ("requestIdleCallback" in window) {
         window.requestIdleCallback(preloadDrawerInIdle, { timeout: 1800 });
       } else {
