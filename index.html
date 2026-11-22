@@ -1804,6 +1804,14 @@
         }
       });
 
+      // Prévia visual "Curadoria recente" do Modo VIP -> Grupo de Curadorias (com delay de 300ms para o Pixel)
+      document.getElementById("vipPreviewStrip")?.addEventListener("click", e => {
+        const link = e.target.closest("a");
+        if (link) {
+          handleGroupCtaNavigation(e, link, "vip_preview_strip");
+        }
+      });
+
       // Rodapé social
       document.getElementById("socialFooterContainer")?.addEventListener("click", e => {
         const link = e.target.closest("a");
@@ -1836,7 +1844,14 @@
 
       const previewItems = SITE_CONFIG.curations.slice(0, 4);
       container.innerHTML = `
-        <div class="rounded-card bg-cream-light dark:bg-espresso-card border border-cream-border dark:border-espresso-border p-3.5 space-y-2.5">
+        <a
+          id="vipPreviewGroupLink"
+          href="${escapeHtml(SITE_CONFIG.curadoriaGroup.url)}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Ver curadoria recente no Grupo de Curadorias AsHome"
+          class="group block rounded-card bg-cream-light dark:bg-espresso-card border border-cream-border dark:border-espresso-border hover:border-wood dark:hover:border-wood-light p-3.5 space-y-2.5 transition-colors"
+        >
           <div class="flex items-center justify-between">
             <span class="text-[11px] font-semibold uppercase tracking-[0.1em] text-wood dark:text-wood-light">
               Curadoria recente
@@ -1861,7 +1876,11 @@
               )
               .join("")}
           </div>
-        </div>
+          <div class="flex items-center justify-between pt-0.5 text-[11.5px] font-medium text-wine dark:text-butter">
+            <span data-cta-label data-loading-label="Abrindo o Grupo...">Ver peças e links no Grupo</span>
+            <i class="ph ph-arrow-up-right text-sm text-wood dark:text-wood-light group-hover:text-wine dark:group-hover:text-butter transition-colors" aria-hidden="true"></i>
+          </div>
+        </a>
       `;
       container.classList.remove("hidden");
     }
