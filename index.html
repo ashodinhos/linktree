@@ -753,9 +753,16 @@
       if (triggerBtn) {
         const labelEl = triggerBtn.querySelector("[data-cta-label]");
         if (labelEl) {
-          labelEl.textContent = "Abrindo o Grupo de Curadorias...";
+          const originalText = labelEl.dataset.originalLabel || labelEl.textContent;
+          labelEl.dataset.originalLabel = originalText;
+          labelEl.textContent = labelEl.dataset.loadingLabel || "Abrindo o Grupo de Curadorias...";
+          setTimeout(() => {
+            labelEl.textContent = originalText;
+          }, 1500);
         }
       }
+
+      showToast("Abrindo o Grupo de Curadorias...");
 
       // Aguarda 300ms para o fbevents.js despachar o evento antes do redirecionamento
       setTimeout(() => {
@@ -1088,7 +1095,7 @@
                   </div>
 
                   <span class="inline-flex items-center gap-1 text-[11.5px] font-medium text-wine dark:text-butter pt-0.5">
-                    <span>${escapeHtml(ctaText)}</span>
+                    <span data-cta-label data-loading-label="Abrindo o Grupo...">${escapeHtml(ctaText)}</span>
                     <span aria-hidden="true">→</span>
                   </span>
                 </div>
@@ -1147,7 +1154,7 @@
           if (drawerEnabled) {
             openCuradoriaDrawer(item.id);
           } else if (!item.url) {
-            handleGroupCtaNavigation(e, null, "moodboard_card");
+            handleGroupCtaNavigation(e, btn, "moodboard_card");
           }
         });
       });
