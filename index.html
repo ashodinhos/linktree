@@ -207,9 +207,9 @@
       </section>
 
       <!-- ================================================================= -->
-      <!-- SEÇÃO 3: NAVEGAÇÃO POR EDITORIAS (5 PILARES)                      -->
+      <!-- SEÇÃO 3: NAVEGAÇÃO POR EDITORIAS (OCULTA ENQUANTO HÁ APENAS UMA)  -->
       <!-- ================================================================= -->
-      <section id="editorialsSection" class="space-y-3" aria-label="Navegação por Editorias">
+      <section id="editorialsSection" hidden class="hidden space-y-3" aria-label="Navegação por Editorias">
         <div class="flex items-center justify-between px-0.5">
           <div class="flex items-center gap-2">
             <span class="w-4 h-px bg-wood dark:bg-wood-light" aria-hidden="true"></span>
@@ -497,6 +497,8 @@
     const SITE_CONFIG = {
       // Ative (true) quando quiser reexibir o botão "Catálogo" e a gaveta de detalhes
       enableCuradoriaDrawer: false,
+      // Ative (true) quando houver mais editorias e quiser exibir a seção "Editorias"
+      enableEditorialsSection: false,
 
       profile: {
         brandTitle: "ASHOME CURADORIA",
@@ -534,9 +536,9 @@
       // Os 5 Pilares Editoriais oficiais
       editorials: [
         {
-          id: "movel-colorido",
-          title: "Móvel Colorido",
-          subtitle: "Tons de destaque em peças icônicas",
+          id: "o-tema-da-semana",
+          title: "Tema da Semana",
+          subtitle: "Vários itens, mesma pegadas",
           icon: "ph-couch"
         }
       ],
@@ -904,10 +906,24 @@
       });
     }
 
-    // Seção 3: Navegação por Editorias (5 pilares)
+    // Seção 3: Navegação por Editorias
     function renderEditorials() {
+      const section = document.getElementById("editorialsSection");
       const container = document.getElementById("editorialsContainer");
       const resetTopBtn = document.getElementById("resetEditorialTopBtn");
+      const editorialsEnabled = Boolean(SITE_CONFIG.enableEditorialsSection) && SITE_CONFIG.editorials.length > 0;
+
+      if (section) {
+        section.hidden = !editorialsEnabled;
+        section.classList.toggle("hidden", !editorialsEnabled);
+      }
+
+      if (!editorialsEnabled) {
+        activeEditorial = "all";
+        if (container) container.innerHTML = "";
+        resetTopBtn?.classList.add("hidden");
+        return;
+      }
 
       if (resetTopBtn) {
         resetTopBtn.classList.toggle("hidden", activeEditorial === "all");
