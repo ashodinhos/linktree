@@ -37,6 +37,10 @@ module.exports = {
           muted: "#6E594F",
           darkMuted: "#C7B5A5",
         },
+          emerald: {
+            DEFAULT: "#064e3b",
+            hover: "#065f46",
+        },
       },
       borderRadius: {
         card: "12px",
